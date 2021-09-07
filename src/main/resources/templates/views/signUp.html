@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>SignUp</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" th:href="@{/css/index.css}">
+    </head>
+    <body>
+
+
+
+        <div class="wrapper">
+            <div class="formed">
+        <form method="post">
+        
+            <label><h2>Let's Get Started</h2></label>
+        
+            <label for="input" alt="First name" placeholder="First name">First name</label>
+            <input id="input" type="text" required name="firstName" />
+        
+            <br>
+            <label for="lname" alt="Last name" placeholder="Last name">Last name</label>
+            <input id="lname" type="text" required name="lastName"/>
+            <br>
+
+            <label for="email" alt="Email" placeholder="Email">Email</label>
+            <input id="email" type="text" required name="email"/>
+            <br>
+            <label for="pNumber" alt="Phone Number" placeholder="Phone Number">Phone Number</label>
+            <input  id="pNumber" type="text" required name="phoneNumber"/>
+            <br>
+            <label  alt="Password" placeholder="Password">Password</label>
+            <input  class="nPassword" type="text" required name="password"/>
+            <br>
+            <input  class="cPassword" type="text" required name="confirmPassword"/>
+            <label  alt="Confirm Password" placeholder="Confirm Password"></label><br><br>
+               <p color="red"> <strong> ${errorMessage}</strong></p>
+            <br>
+            <br>
+            <br>
+            <input class="SignUp" type="submit" value="Sign up">
+        
+        <div class="SignIn">
+                <p>Already have an account? <a href="signin">Sign in</a>.</p>
+            </div>
+        </form>
+            </div>
+            
+        <img th:src="@{/images/NFCClogo.jpg}" >
+        
+        </div>
+        </body>
+</html>
