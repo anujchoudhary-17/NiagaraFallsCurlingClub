@@ -21,7 +21,7 @@ public class SignInController {
 	
 	
 	
-	@Autowired
+	@Autowired(required = true)
 	private UserRepository userRepo;
 	
 	
