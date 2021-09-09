@@ -43,7 +43,7 @@ public class SignInController {
 
 	        if (!validateUserData(model,email,password)) {
 	        
-	        	 return "redirect:/views/signIn";	 
+	        	 return "redirect:signin";	 
 	        	 }	       
 	        else
 	        {
