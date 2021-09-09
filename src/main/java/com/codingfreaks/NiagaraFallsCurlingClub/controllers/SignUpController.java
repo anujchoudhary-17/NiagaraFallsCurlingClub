@@ -30,7 +30,7 @@ public class SignUpController {
 	
 			@RequestMapping(value="/signup", method = RequestMethod.GET)
 			public String signUp(Model model) {
-				return "/views/signUp";
+				return "views/signUp";
 			}
 			
 	
@@ -38,14 +38,14 @@ public class SignUpController {
 	public String save(ModelMap model, @RequestParam String firstName,@RequestParam String lastName,@RequestParam String email,@RequestParam String phoneNumber,
 			@RequestParam String password,@RequestParam String confirmPassword) {
 	        if (!validateUserData(model,firstName,lastName,email,phoneNumber,password,confirmPassword)) {
-	            return "/views/signUp";
+	            return "views/signUp";
 	        }
 	        else
 	        {
 	 	       User member = new User(firstName,lastName,email,password,phoneNumber);
 		        userRepo.save(member);
 				model.addAttribute("transformationForm", model);
-		         return "/views/signIn";
+		         return "views/signIn";
 	        }
 	}
 	

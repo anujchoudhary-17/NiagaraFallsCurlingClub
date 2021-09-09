@@ -33,7 +33,7 @@ public class SignInController {
 	@RequestMapping(value="/signin", method = RequestMethod.GET)
 	public String signIn(Model model) {
 		
-		return "/views/signIn";
+		return "views/signIn";
 	}
 	
 	
