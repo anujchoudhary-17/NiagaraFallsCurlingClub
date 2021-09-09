@@ -45,7 +45,7 @@ public class SignUpController {
 	 	       User member = new User(firstName,lastName,email,password,phoneNumber);
 		        userRepo.save(member);
 				model.addAttribute("transformationForm", model);
-		         return "views/signIn";
+		         return "redirect:signin";
 	        }
 	}
 	
