@@ -7,5 +7,21 @@
 <body>
     <h1 th:text="${userid}"/>
     <h2 th:text="${name}"/>
+    
+
+
+    <form th:action="@{/regiterTournamentTest}">
+        <button type="submit">Register Tournament Test</button>
+        </form>
+
+
+        <form th:action="@{/acceptTournamentInvitationTest}">
+            <button type="submit">Accept Tournament Invitation Test</button>
+            </form>
+            <form th:action="@{/editProfileNavigate}" method="POST">
+                <button type="submit ">Edit Profile</button>
+            </form>
+    <button type="submit">Membership Selection</button>
+    
 </body>
 </html>

@@ -2,6 +2,7 @@ package com.codingfreaks.NiagaraFallsCurlingClub.modelClasses;
 
 import java.util.List;
 
+import org.apache.tomcat.jni.Address;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.FieldType;
@@ -29,7 +30,8 @@ public class User {
 	private String alternatePhone;
 	private int curlingExperience;
 	private List<WeeklyTimingsENUM> timingsList;
-
+	private EmergencyContact emergencyContact;
+	private UserAddress address;
 
 	
 
@@ -112,7 +114,10 @@ public class User {
 	
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + "]";
+		return "User [address=" + address + ", alternatePhone=" + alternatePhone + ", curlingExperience="
+				+ curlingExperience + ", email=" + email + ", emergencyContact=" + emergencyContact + ", firstName="
+				+ firstName + ", lastName=" + lastName + ", password=" + password + ", primaryPhone=" + primaryPhone
+				+ ", timingsList=" + timingsList + ", userId=" + userId + "]";
 	}
 	public int getCurlingExperience() {
 		return curlingExperience;
@@ -125,6 +130,18 @@ public class User {
 	}
 	public void setTimingsList(List<WeeklyTimingsENUM> timingsList) {
 		this.timingsList = timingsList;
+	}
+	public EmergencyContact getEmergencyContact() {
+		return emergencyContact;
+	}
+	public void setEmergencyContact(EmergencyContact emergencyContact) {
+		this.emergencyContact = emergencyContact;
+	}
+	public UserAddress getAddress() {
+		return address;
+	}
+	public void setAddress(UserAddress address) {
+		this.address = address;
 	}
 	
 	
