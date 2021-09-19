@@ -59,6 +59,14 @@ public class HomeController {
         tournamentRequestRepository.save(tournamentRequest);
         System.out.println("Successfully Accepted Tournament Request !");
         return "redirect:home";
+    }  
+    
+    @RequestMapping("/tournamentNavigate")
+    public String tournamentNavigate(
+        Model model,  RedirectAttributes redirectAttrs
+    ) {
+        redirectAttrs.addAttribute("uid", userId);
+        return "redirect:tournaments";
     }
 
 

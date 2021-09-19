@@ -1,49 +1,38 @@
 
+/* size and transformation of all textboxes other than passwords */
 
-lname[type="text"], email[type="text"],pNumber[type="number"],input[type="text"]{
+.placehAnimation{
     box-sizing: border-box;
-    width: 100%;
-    height: calc(3em + 2px);
-    margin: 0 0 1em;
+    width:140px; 
+    height: calc(1.5em + 1px); 
     padding: 6px;
     border: 1px solid #bababa;
     border-radius: 15px;
     background: #fff;
     font-size: 16px;
-    resize: none;
-    outline: none;
+   }
 
-}
 
-lname[type="text"],email[type="text"],pNumber[type="text"],input[type="text"]:focus {
-    border-color: #00bafa;
-}
-lname[type="text"],email[type="text"],pNumber[type="text"],input[type="text"]:focus + label[placeholder]:before {
+.placehAnimation:focus + .placehAnimationLabel:before {
     color: #0091da;
 }
-lname[type="text"],email[type="text"],pNumber[type="text"],input[type="text"]:focus + label[placeholder]:before,
-lname[type="text"],email[type="text"],pNumber[type="text"],input[type="text"]:valid + label[placeholder]:before {
+.placehAnimation:focus + .placehAnimationLabel:before,
+.placehAnimation:valid + .placehAnimationLabel:before {
     transition-duration: .2s;
-    transform: translate(0, -1.6em) scale(0.9, 0.9);
+    transform: translate(-7em, 0em) scale(0.9, 0.9);
     font-weight: bold;
 }
-lname[type="text"],email[type="text"],pNumber[type="text"],input[type="text"]:valid {
-    border-color: green;
-}
-lname[type="text"],email[type="text"],pNumber[type="text"],input[type="text"]:valid + label[placeholder]:before {
-    color: green;
-}
-lname[type="text"],email[type="text"],pNumber[type="text"],input[type="text"]:invalid + label[placeholder][alt]:before {
-    content: attr(alt);
-}
-lname[type="text"],email[type="text"],pNumber[type="text"],input[type="text"] + label[placeholder] {
+
+
+.placehAnimation + .placehAnimationLabel {
     display: block;
     pointer-events: none;
     line-height: 1.25em;
-    margin-top: calc(-3em - 2px);
-    margin-bottom: calc((3em - 1em) + 2px);
+    margin-top: calc(-1em - 5px);
+    margin-bottom: calc((1em - 1em) + 10px);
 }
-lname[type="text"],email[type="text"],pNumber[type="text"],input[type="text"] + label[placeholder]:before {
+
+.placehAnimation + .placehAnimationLabel:before {
     content: attr(placeholder);
     display: inline-block;
     margin: 0 calc(0.5em + 2px);
@@ -57,15 +46,20 @@ lname[type="text"],email[type="text"],pNumber[type="text"],input[type="text"] + 
     background-position: center;
 }
 
+/* password hidden webkit */
+
 input.nPassword,input.cPassword {
     -webkit-text-security: disc;
 }
 
+
+/* sign up button  */
+
 input.SignUp{
     text-align: center;
     box-sizing: border-box;
-    width: 100%;
-    height: calc(3em + 2px);
+    width: 40%;
+    height: calc(2em + 2px);
     margin: 0 0 1em;
     padding: 6px;
     border: 1px solid #bababa;
@@ -79,7 +73,7 @@ input.SignUp{
 }
 
 input.SignUp{background-image: linear-gradient(to right, #314755 0%, #26a0da  51%, #314755  100%)}
-
+a.SignUp{background-image: linear-gradient(to right, #314755 0%, #26a0da  51%, #314755  100%)}
 
 input.SignUp:hover {
     background-color: dodgerblue;
@@ -87,10 +81,13 @@ input.SignUp:hover {
     color: #fff;
     text-decoration: none;
 }
+
+/* sign in button  */
+
 input.SignIn{
     text-align: center;
     box-sizing: border-box;
-    width: 100%;
+    width: 40%;
     height: calc(3em + 2px);
     margin: 0 0 1em;
     padding: 6px;
@@ -113,13 +110,16 @@ input.SignIn:hover {
     color: #fff;
     text-decoration: none;
 }
+
+/* new password textbox animation  */
+
 input.nPassword[type=text],input.cPassword[type=text]{
 
     box-sizing: border-box;
-    width: 100%;
-    height: calc(3em + 2px);
-    margin: 0 0 1em;
-    padding: 6px;
+    /* width: 100%; */
+    /* height: calc(3em + 2px);
+    margin: 0 0 1em;*/
+    padding: 6px; 
     border: 1px solid #bababa;
     border-radius: 15px;
     background: #fff;
@@ -128,38 +128,66 @@ input.nPassword[type=text],input.cPassword[type=text]{
     outline: none;
 }
 
+/* Sign up page mid line transformation and style  */
 
-.wrapper{
+.split {
+    
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  .left {
+    height: 100%;
+    width: 30%;
+    left: 0;
+    background-color: rgb(83, 216, 105);
+  }
+  
+  .right {
+    height: 100%;
+    width: 70%;
+   right:0;
+   background-color: rgb(201, 90, 15); 
+     
+  }
+  
+  .centre{ 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* text-align: center; */
+  }
 
-    display: grid;
-    grid-template-columns: 80% 20%;
-    width: 80vw;
-    height: 80vh;
-    padding-top: 40px;
-    padding-left: 30px;
-    column-gap: 10px;
-    padding-bottom: 40px;
-
-
-}
-
-.wrapper > .formed{
+.right > .centre{
+    /* display:inline-block; */
+    width: 500px;
     border: 2px solid lightgrey;
     padding: 10px;
     border-radius: 25px;
-    background: white;
-    display: grid;
-    grid-auto-flow: column;
+    background: rgb(250, 250, 250);
+    
+    /* grid-auto-flow: column; */
     gap: 4px;
-    align-items: center;
-    justify-items: center;
+    /* align-items: center;
+    justify-items: center; */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-.wrapper > div:nth-child(odd){
-    background:white;
-    align-items: center;
-    justify-items: center;
-}
+ }
+
+ .left > .centre{
+     background-color: #0091da;
+ }
+
+ .centre {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
 
 
 .logo {
@@ -177,7 +205,7 @@ img {
 }
 
 a {
-    color: dodgerblue;
+    color: rgb(30, 255, 116);
 }
 
 .signIn, .SignUp{
@@ -188,3 +216,96 @@ a {
 body{
     font-family: 'Poppins', sans-serif;
 }
+
+#SignInbtn{
+    width: 100%;
+}
+
+/* Google and facebook btn hover style  */
+
+#customBtn {
+  display: inline-block;
+  background: white;
+  color: #444;
+  width: 70px;
+  border-radius: 5px;
+  border: thin solid #888;
+  box-shadow: 1px 1px 1px grey;
+  white-space: nowrap;
+}
+#customBtn:hover {
+  cursor: pointer;
+}
+
+/* sing up options for google and facebook designs  */
+
+span.buttonText {
+  display: inline-block;
+  vertical-align: middle;
+
+  font-size: 14px;
+  font-weight: bold;
+  /* Use the Roboto font that is loaded in the <head> */
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Sign up page hr OR line  */
+
+hr {
+    border: none;
+    border-top: 3px double #333;
+    color: #333;
+    overflow: visible;
+    text-align: center;
+    height: 5px;
+}
+
+hr:after {
+    background: #fff;
+    content: 'OR';
+    padding: 0 4px;
+    position: relative;
+    top: -13px;
+}
+
+
+
+
+.wrapper{
+    /* display: grid;
+    grid-template-columns: 80% 20%;
+    width: 80vw;
+    height: 80vh;
+    padding-top: 40px;
+    padding-left: 30px;
+    column-gap: 10px;
+    padding-bottom: 40px;
+    top:50%;
+    left:50%;
+    
+    transform: translate(-50%, -50%); */
+}
+
+
+.wrapper>.formed{
+    width: 500px;
+    border: 2px solid lightgrey;
+    padding: 10px;
+    border-radius: 25px;
+    background: rgb(86, 219, 146);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+ }
+
+  /*     
+.wrapper > div:nth-child(odd){
+    background:white;
+    align-items: center;
+    justify-items: center;
+}  */
+
+
+
