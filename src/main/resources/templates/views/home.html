@@ -7,25 +7,21 @@
 <body>
     <h1 th:text="${userid}"/>
     <h2 th:text="${name}"/>
-    
 
 
-    <form th:action="@{/regiterTournamentTest}">
-        <button type="submit">Register Tournament Test</button>
-        </form>
-
-
-        <form th:action="@{/acceptTournamentInvitationTest}">
-            <button type="submit">Accept Tournament Invitation Test</button>
-            </form>
-            <form th:action="@{/editProfileNavigate}" method="POST">
-                <button type="submit ">Edit Profile</button>
-            </form>
-    <button type="submit">Membership Selection</button>
 
     <form th:action="@{/tournamentNavigate}" method="POST">
         <button type="submit">Tournaments</button>
     </form>
+
+
+    <form th:action="@{/createTournamentNavigate}" method="POST">
+        <button type="submit">Create Tournament</button>
+    </form>
     
+
+    <form th:action="@{/setupMembershipNavigate}" method="POST">
+        <button type="submit">Setup Membership</button>
+    </form>
 </body>
 </html>

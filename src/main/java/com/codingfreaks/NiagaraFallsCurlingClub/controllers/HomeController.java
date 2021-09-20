@@ -39,27 +39,15 @@ public class HomeController {
 
     
 
-    @RequestMapping("/regiterTournamentTest")
-    public String regiterTournamentTest(
-        Model model
+    @RequestMapping("/createTournamentNavigate")
+    public String createTournamentNavigate(
+        Model model, RedirectAttributes redirectAttrs
     ) {
-        long currentTimestamp = Instant.now().toEpochMilli();
-        TournamentRequest tournamentRequest = new TournamentRequest("tournamentId", userId , currentTimestamp, TournamentRequestStatus.StatusENUM.pending);
-        tournamentRequestRepository.save(tournamentRequest);
-        System.out.println("Successfully Saved Tournament Data !");
-        return "redirect:home";
+        redirectAttrs.addAttribute("uid", userId);
+        return "redirect:create_tournament";
     }
 
-    @RequestMapping("/acceptTournamentInvitationTest")
-    public String acceptTournamentInvitationTest(
-        Model model
-    ) {
-        long currentTimestamp = Instant.now().toEpochMilli();
-        TournamentRequest tournamentRequest = new TournamentRequest("tournamentId", userId , currentTimestamp, TournamentRequestStatus.StatusENUM.pending);
-        tournamentRequestRepository.save(tournamentRequest);
-        System.out.println("Successfully Accepted Tournament Request !");
-        return "redirect:home";
-    }  
+   
     
     @RequestMapping("/tournamentNavigate")
     public String tournamentNavigate(
@@ -77,6 +65,17 @@ public class HomeController {
         System.out.println("Edit Profile : "+userId);
         redirectAttrs.addAttribute("uid", userId);
         return "redirect:editprofile";
+    }
+
+
+
+    @PostMapping("/setupMembershipNavigate")
+    public String setupMembershipNavigate(
+        Model model,  RedirectAttributes redirectAttrs
+    ) {
+        System.out.println("Edit Profile : "+userId);
+        redirectAttrs.addAttribute("uid", userId);
+        return "redirect:membership";
     }
     
     

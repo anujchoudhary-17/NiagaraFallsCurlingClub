@@ -15,7 +15,8 @@ public class WeeklyTimings {
 		THUbusinessWomen,
 		FRInightDoubles,
 		SUNlittleRocks,
-		SUNyouthCurling
+		SUNyouthCurling, 
+		THUgirlsRock, THUmixedLeague
 		}
 
 	
@@ -43,8 +44,12 @@ public class WeeklyTimings {
 			        return "Brodie";
 		      case THUdayCoed:
 			        return "Day Co-Ed";
+			  case THUgirlsRock:
+			        return "Girls Rock";
 		      case THUbusinessWomen:
 			        return "Business Women";
+				case THUmixedLeague:
+					return "Mixed League";
 			  case FRInightDoubles:
 				  	return "Friday Night Doubles";
 		      case SUNlittleRocks:

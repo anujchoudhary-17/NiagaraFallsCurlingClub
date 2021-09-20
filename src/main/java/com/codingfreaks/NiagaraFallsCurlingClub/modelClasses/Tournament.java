@@ -1,5 +1,6 @@
 package com.codingfreaks.NiagaraFallsCurlingClub.modelClasses;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
@@ -25,11 +26,12 @@ public class Tournament
 	private String tournamentId;
 
     private String name,description;
-    private int startTime,endTime,maximumParticipants;
+    private int maximumParticipants;
+    private String startTime,endTime;
 
 
 
-    public Tournament(String name, String description, int startTime, int endTime,
+    public Tournament(String name, String description, String startTime, String endTime,
             int maximumParticipants) {
   
         this.name = name;
@@ -37,6 +39,13 @@ public class Tournament
         this.startTime = startTime;
         this.endTime = endTime;
         this.maximumParticipants = maximumParticipants;
+    }
+
+
+
+
+
+    public Tournament() {
     }
 
 
@@ -66,16 +75,16 @@ public class Tournament
     public void setDescription(String description) {
         this.description = description;
     }
-    public int getStartTime() {
+    public String getStartTime() {
         return startTime;
     }
-    public void setStartTime(int startTime) {
+    public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
-    public int getEndTime() {
+    public String getEndTime() {
         return endTime;
     }
-    public void setEndTime(int endTime) {
+    public void setEndTime(String endTime) {
         this.endTime = endTime;
     }
     public int getMaximumParticipants() {
