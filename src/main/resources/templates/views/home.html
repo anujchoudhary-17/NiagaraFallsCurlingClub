@@ -9,9 +9,12 @@
     <h2 th:text="${name}"/>
 
 
+    <form th:action="@{/editProfileNavigate}" method="POST">
+        <button type="submit ">Edit Profile</button>
+    </form>
 
     <form th:action="@{/tournamentNavigate}" method="POST">
-        <button type="submit">Tournaments</button>
+        <button type="submit">All Tournaments</button>
     </form>
 
 
@@ -19,7 +22,6 @@
         <button type="submit">Create Tournament</button>
     </form>
     
-
     <form th:action="@{/setupMembershipNavigate}" method="POST">
         <button type="submit">Setup Membership</button>
     </form>
