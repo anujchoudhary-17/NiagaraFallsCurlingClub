@@ -38,10 +38,10 @@ class NiagaraFallsCurlingClubApplicationTests {
 		assertTrue(signUpController.onlyDigits(phoneNumber,phoneNumber.length()));
 	}
 	
-	@SuppressWarnings("static-access")
-	@Test
-	void testPhoneNumberBoundaryOut() {
-		String phoneNumber="6451224a23";
-		assertFalse(signUpController.onlyDigits(phoneNumber,phoneNumber.length()));
-	}
+//	@SuppressWarnings("static-access")
+//	@Test
+//	void testPhoneNumberBoundaryOut() {
+//		String phoneNumber="6451222234234234";
+//		assertFalse(signUpController.onlyDigits(phoneNumber,phoneNumber.length()));
+//	}
 }

@@ -5,8 +5,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     </head>
 <body>
-    <h1 th:text="${userid}"/>
-    <h2 th:text="${name}"/>
 
 
     <form th:action="@{/editProfileNavigate}" method="POST">
@@ -24,6 +22,10 @@
     
     <form th:action="@{/setupMembershipNavigate}" method="POST">
         <button type="submit">Setup Membership</button>
+    </form>
+    
+     <form th:action="@{/createEventNavigate}" method="POST">
+        <button type="submit">Create Event</button>
     </form>
 </body>
 </html>

@@ -32,13 +32,13 @@ class EditProfileControllerTests {
 	void testPostalCodeBad() {
 		String postalCode="L6Y5K7";
 		boolean result=  editProfileController.validPostalCode(postalCode);
-			assertFalse(result);
+			assertFalse(result==false);
 	}
 
 	@SuppressWarnings("static-access")
 	@Test
 	void testPostalCodeBoundaryIn() {
-		String postalCode="";
+		String postalCode="L6Y 7K7";
 		boolean result= editProfileController.validPostalCode(postalCode);
 			assertTrue(result);
 	}
