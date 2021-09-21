@@ -59,7 +59,6 @@ public class TournamentController {
     private List<Tournament> totalTournaments(){
          System.out.println(tournamentRepository.findAll());
       List<Tournament> tournaments =  tournamentRepository.findAll();
-
       return tournaments;
     }
     

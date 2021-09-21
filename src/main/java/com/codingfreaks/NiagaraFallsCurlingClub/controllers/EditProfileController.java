@@ -1,6 +1,8 @@
 package com.codingfreaks.NiagaraFallsCurlingClub.controllers;
 
 import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.management.Query;
 
@@ -30,9 +32,9 @@ public class EditProfileController {
    
         model.addAttribute("userid", uid);
         userId=uid;
-        model.addAttribute("userData", userFound());
-        if(userFound().getEmergencyContact()!=null)
-            model.addAttribute("emergencyContact", userFound().getEmergencyContact());
+        model.addAttribute("userData", userFound(userId));
+        if(userFound(userId).getEmergencyContact()!=null)
+            model.addAttribute("emergencyContact", userFound(userId).getEmergencyContact());
         else
             model.addAttribute("emergencyContact", new EmergencyContact());
 
@@ -46,10 +48,10 @@ public class EditProfileController {
    
         model.addAttribute("userid", uid);
         userId=uid;
-        model.addAttribute("userData", userFound());
+        model.addAttribute("userData", userFound(userId));
         
-        if(userFound().getEmergencyContact()!=null)
-            model.addAttribute("emergencyContact", userFound().getEmergencyContact());
+        if(userFound(userId).getEmergencyContact()!=null)
+            model.addAttribute("emergencyContact", userFound(userId).getEmergencyContact());
         else
             model.addAttribute("emergencyContact", new EmergencyContact());
 
@@ -65,7 +67,7 @@ public class EditProfileController {
         @RequestParam String province, @RequestParam String postalCode
     ) {
 
-        User user = userFound();
+        User user = userFound(userId);
         user.setAddress(new UserAddress(streetName, city, province, postalCode));
         updateUserData(user);
         redirectAttrs.addAttribute("uid",userId);
@@ -75,7 +77,7 @@ public class EditProfileController {
     @PostMapping("/userPasswordForm")
     public String userPasswordForm( Model model,RedirectAttributes redirectAttrs,@RequestParam String oldPassword,@RequestParam String newPassword){
 
-        User user = userFound();
+        User user = userFound(userId);
         String statusOfPassword = updateUserPassword(user,oldPassword,newPassword);
         redirectAttrs.addAttribute("uid",userId);
         redirectAttrs.addAttribute("status",statusOfPassword);
@@ -161,10 +163,18 @@ public class EditProfileController {
     }
 
 
-    private User userFound(){
-      User user =  userRepository.findById(userId).orElse(null);
-        return user;
+    public User userFound(String uid){
+      User user =  userRepository.findById(uid).orElse(null);
+       return user;
     }
 
-
+    public boolean validPostalCode(String postalCode) {
+    	if(postalCode == null)
+    		return false;
+    	String POSTAL_REGEX = "^(?!.*[DFIOQU])[A-VXY][0-9][A-Z] ?[0-9][A-Z][0-9]$";
+    	Pattern pattern = Pattern.compile(POSTAL_REGEX);
+    	Matcher matcher = pattern.matcher(postalCode);
+    	
+    	return matcher.matches();
+    }
 }

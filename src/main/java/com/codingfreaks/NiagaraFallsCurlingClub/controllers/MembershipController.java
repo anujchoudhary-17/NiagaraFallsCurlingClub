@@ -119,7 +119,7 @@ public class MembershipController{
 
         redirectAttrs.addAttribute("uid", userId);
         System.out.println("Successfully Saved Tournament Data !");
-        return "redirect:membership";
+        return "redirect:home";
     }
 
     

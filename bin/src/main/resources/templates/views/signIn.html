@@ -10,17 +10,19 @@
             <div class="formed">
                 <form method="post">
         
-                    <label><h2>Sign in </h2></label>
+                    <h1>Sign in </h1>
+                    <br><br>
+                    <input id="email" type="text" required name="email" class="placehAnimation"/>
+                    <label for="email" alt="Email" placeholder="Email" class="placehAnimationLabel"></label>
         
-
-                    <label for="email" alt="Email" placeholder="Email">Email</label>
-                    <input id="email" type="text" required name="email"/>
-                    <br>
-                    <label  alt="Password" placeholder="Password">Password</label>
-                    <input  class="nPassword" type="text" required name="password"/>
+                   
+                    <input  class="nPassword placehAnimation" type="text" required name="password"/>
+                    <label  alt="Password" placeholder="Password" class="placehAnimationLabel"></label>
         
                     <c:set var="bar" value="${param.email}" scope="session"/>
         
+                    <br><br>
+
                     <input class="SignIn" type="submit" value="Sign in">
         
                     <div class="SignUp">
@@ -31,8 +33,8 @@
                 </form>
         
             </div>
-        <img th:src="@{/images/NFCClogo.jpg}" >
-        
+        <!-- <img th:src="@{/images/NFCClogo.jpg}" >
+         -->
             
         
         </div>

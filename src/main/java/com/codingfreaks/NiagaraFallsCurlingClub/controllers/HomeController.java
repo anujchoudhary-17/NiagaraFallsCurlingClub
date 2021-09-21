@@ -79,4 +79,15 @@ public class HomeController {
     }
     
     
+
+    @PostMapping("/createEventNavigate")
+    public String createEventNavigate(
+        Model model,  RedirectAttributes redirectAttrs
+    ) {
+        System.out.println("Edit Profile : "+userId);
+        redirectAttrs.addAttribute("uid", userId);
+        return "redirect:create_event";
+    }
+    
+    
 }

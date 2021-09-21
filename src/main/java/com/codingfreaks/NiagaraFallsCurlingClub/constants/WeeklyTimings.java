@@ -16,7 +16,8 @@ public class WeeklyTimings {
 		FRInightDoubles,
 		SUNlittleRocks,
 		SUNyouthCurling, 
-		THUgirlsRock, THUmixedLeague
+		THUgirlsRock,
+		THUmixedLeague
 		}
 
 	

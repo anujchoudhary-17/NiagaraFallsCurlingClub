@@ -119,6 +119,10 @@ public class SignUpController {
 		 public static boolean onlyDigits(String str, int n) 
 		    { 
 			 
+			 
+			 if(str==null)
+				 return false;
+			 
 		        for (int i = 0; i < n; i++) { 
 		  
 		            if (str.charAt(i) >= '0'
@@ -130,7 +134,9 @@ public class SignUpController {
 		            }
 		        } 
 		        return false; 
-		    } 	 
+		    } 		 
+	 
+	 
 	
 		 
 }
