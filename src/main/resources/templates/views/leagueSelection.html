@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" th:href="@{/css/setupMembership.css}">
+</head>
+<body>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li style="float:right"><a class="active" href="#about">MEMBERSHIP OPTIONS</a></li>
+      </ul>
+<form th:action="@{/saveLeagueDetails}" method="POST" th:object="${user}">
+    <div class="box">
+  
+      <div th:each="league : ${leagues}">&nbsp;
+          <span  th:text="${league.leagueName}"></span>
+          <input type="checkbox" id="" th:field="*{leagueId}" name="leagues" th:value="${league.leagueId}" unchecked>
+      </div>
+    
+    </div>
+        
+    <button type="submit" >Save League Selection</button>
+  </form>
+</body>
+</html>

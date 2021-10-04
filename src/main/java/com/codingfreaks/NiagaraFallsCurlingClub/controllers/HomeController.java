@@ -89,5 +89,41 @@ public class HomeController {
         return "redirect:create_event";
     }
     
+
+    @PostMapping("/matchNavigate")
+    public String matchNavigate(
+        Model model,  RedirectAttributes redirectAttrs
+    ) {
+        System.out.println("Edit Profile : "+userId);
+        redirectAttrs.addAttribute("uid", userId);
+        return "redirect:matches";
+    }
     
+
+    @PostMapping("/createLeagueNavigate")
+    public String createLeagueNavigate(
+        Model model,  RedirectAttributes redirectAttrs
+    ) {
+        redirectAttrs.addAttribute("uid", userId);
+        return "redirect:create_league";
+    }
+
+
+    @PostMapping("/navigateLeagueSelection")
+    public String navigateLeagueSelection(
+        Model model,  RedirectAttributes redirectAttrs
+    ) {
+        redirectAttrs.addAttribute("uid", userId);
+        return "redirect:league_selection";
+    }
+
+
+
+    @PostMapping("/viewLeaguesAdmin")
+    public String viewLeaguesAdmin(
+        Model model,  RedirectAttributes redirectAttrs
+    ) {
+        redirectAttrs.addAttribute("uid", userId);
+        return "redirect:view_leagues";
+    }
 }

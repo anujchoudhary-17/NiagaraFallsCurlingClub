@@ -19,7 +19,6 @@ import lombok.ToString;
 @Document(collection = "tblUsers")
 public class User {
     
-
 	@MongoId(FieldType.OBJECT_ID)
 	private String userId;
 	private String firstName;
@@ -32,123 +31,108 @@ public class User {
 	private List<WeeklyTimingsENUM> timingsList;
 	private EmergencyContact emergencyContact;
 	private UserAddress address;
-
+	private List<String> leagueId;
+	private List<String> teamId;
 	
-
 	public User()
 	{
-		
+	  
 	}
 	public User(String firstName, String lastName, String email, String password,String primaryPhone) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.password = password;
-		this.primaryPhone = primaryPhone;
+	  super();
+	  this.firstName = firstName;
+	  this.lastName = lastName;
+	  this.email = email;
+	  this.password = password;
+	  this.primaryPhone = primaryPhone;
 	}
 	
-	
-	public User(String firstName, String lastName, String email, String password,String primaryPhone,String alternatePhone) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.password = password;
-		this.primaryPhone = primaryPhone;
-		this.alternatePhone = alternatePhone;
-	}
-	
-	
-
+	  
 	
 	
 	
 	public String getUserId() {
-		return userId;
+	  return userId;
 	}
 	public void setUserId(String userId) {
-		this.userId = userId;
+	  this.userId = userId;
 	}
 	public String getFirstName() {
-		return firstName;
+	  return firstName;
 	}
 	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	  this.firstName = firstName;
 	}
 	public String getLastName() {
-		return lastName;
+	  return lastName;
 	}
 	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	  this.lastName = lastName;
 	}
 	public String getEmail() {
-		return email;
+	  return email;
 	}
 	public void setEmail(String email) {
-		this.email = email;
+	  this.email = email;
 	}
 	public String getPassword() {
-		return password;
+	  return password;
 	}
 	public void setPassword(String password) {
-		this.password = password;
+	  this.password = password;
 	}
 	
-
-
 	public String getPrimaryPhone() {
-		return primaryPhone;
+	  return primaryPhone;
 	}
 	public void setPrimaryPhone(String primaryPhone) {
-		this.primaryPhone = primaryPhone;
+	  this.primaryPhone = primaryPhone;
 	}
 	
 	public String getAlternatePhone() {
-		return alternatePhone;
+	  return alternatePhone;
 	}
 	public void setAlternatePhone(String alternatePhone) {
-		this.alternatePhone = alternatePhone;
+	  this.alternatePhone = alternatePhone;
 	}
 	
-	
-	@Override
-	public String toString() {
-		return "User [address=" + address + ", alternatePhone=" + alternatePhone + ", curlingExperience="
-				+ curlingExperience + ", email=" + email + ", emergencyContact=" + emergencyContact + ", firstName="
-				+ firstName + ", lastName=" + lastName + ", password=" + password + ", primaryPhone=" + primaryPhone
-				+ ", timingsList=" + timingsList + ", userId=" + userId + "]";
-	}
 	public int getCurlingExperience() {
-		return curlingExperience;
+	  return curlingExperience;
 	}
 	public void setCurlingExperience(int curlingExperience) {
-		this.curlingExperience = curlingExperience;
+	  this.curlingExperience = curlingExperience;
 	}
 	public List<WeeklyTimingsENUM> getTimingsList() {
-		return timingsList;
+	  return timingsList;
 	}
 	public void setTimingsList(List<WeeklyTimingsENUM> timingsList) {
-		this.timingsList = timingsList;
+	  this.timingsList = timingsList;
 	}
 	public EmergencyContact getEmergencyContact() {
-		return emergencyContact;
+	  return emergencyContact;
 	}
 	public void setEmergencyContact(EmergencyContact emergencyContact) {
-		this.emergencyContact = emergencyContact;
+	  this.emergencyContact = emergencyContact;
 	}
 	public UserAddress getAddress() {
-		return address;
+	  return address;
 	}
 	public void setAddress(UserAddress address) {
-		this.address = address;
+	  this.address = address;
 	}
+	public List<String> getLeagueId() {
+	  return leagueId;
+	}
+	public void setLeagueId(List<String> leagueId) {
+	  this.leagueId = leagueId;
+	}
+	public List<String> getTeamId() {
+		return teamId;
+	}
+	public void setTeamId(List<String> teamId) {
+		this.teamId = teamId;
+	}
+
+
 	
-	
-	
-
-
-
-
-    
-}
+  }

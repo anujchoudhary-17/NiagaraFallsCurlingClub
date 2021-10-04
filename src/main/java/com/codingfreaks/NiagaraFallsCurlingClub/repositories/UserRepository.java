@@ -1,5 +1,7 @@
 package com.codingfreaks.NiagaraFallsCurlingClub.repositories;
 
+import java.util.List;
+
 import com.codingfreaks.NiagaraFallsCurlingClub.modelClasses.User;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
@@ -19,7 +21,8 @@ public interface UserRepository extends MongoRepository<User, String>{
     @org.springframework.data.mongodb.repository.Query(" { _id: ?0} , { $set: ?1 }")
     public void updateUser(String userId,User user);
 
-    
+    @Query("{leagueId : ?0}")
+    public List<User> usersWithParticularLeagueId(String leagueId);
     
 
 }
