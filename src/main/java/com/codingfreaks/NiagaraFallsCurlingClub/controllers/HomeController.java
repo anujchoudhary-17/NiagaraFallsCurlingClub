@@ -11,6 +11,7 @@ import com.codingfreaks.NiagaraFallsCurlingClub.repositories.Tournament.Tourname
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -126,4 +127,7 @@ public class HomeController {
         redirectAttrs.addAttribute("uid", userId);
         return "redirect:view_leagues";
     }
+    
+    
+
 }

@@ -110,11 +110,7 @@ public class SignUpController {
 		         {
 		        	 return false;
 		         }
-		         
-		         
-		         
-		       
-		}		
+		     }		
 		
 		 public static boolean onlyDigits(String str, int n) 
 		    { 
