@@ -66,7 +66,8 @@ public class SignInController {
 
 		if(emailValidate(email,userRepo))
 		{
-		User userData = userRepo.emailExists(email);
+				System.out.println("email validate me ageya");
+				User userData = userRepo.emailExists(email);
 				if(password.equals(userData.getPassword()))
 				{
 					System.out.println("Hey Password got matched");

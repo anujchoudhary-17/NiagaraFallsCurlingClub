@@ -1,13 +1,9 @@
 package com.codingfreaks.NiagaraFallsCurlingClub.controllers;
 
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import com.codingfreaks.NiagaraFallsCurlingClub.modelClasses.Admin;
-import com.codingfreaks.NiagaraFallsCurlingClub.modelClasses.User;
 import com.codingfreaks.NiagaraFallsCurlingClub.repositories.AdminRespository;
-import com.codingfreaks.NiagaraFallsCurlingClub.repositories.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,30 +36,32 @@ public class SignInAdminController {
 
 	        if (!validateUserData(model,email,password)) {
 	        
-	        	 return "redirect:signInAdmin";	 
+	        	 return "redirect:signinadmin";	 
 	        	 }	       
 	        else
 	        {
-				
-	        	Admin adminData = adminRepo.emailExists(email);
-	        	model.addAttribute("adminData", adminData).addAttribute("userId", adminData.getAdminId());
+				Admin adminData = adminRepo.emailExists(email);
+	        	model.addAttribute("adminData", adminData).addAttribute("adminId", adminData.getAdminId());
 	        	System.out.println("ADMIN ID IS "+adminData.getAdminId());
 
-				redirectAttrs.addAttribute("uid", adminData.getAdminId());
-	        	 return "redirect:home";
+				redirectAttrs.addAttribute("aid", adminData.getAdminId());
+	        	 return "redirect:adminHome";
 				 //+userData.getUserId()
 	        }
 	}
 	
+	
+	
+	
+	
 	public boolean validateUserData(ModelMap model,String email,String password)
 	{
 		
-		System.out.println("Hey Email has been found");
 		System.out.println("Email is : "+emailValidate(email,adminRepo));
 
 		if(emailValidate(email,adminRepo))
 		{
-		Admin adminData = adminRepo.emailExists(email);
+				Admin adminData = adminRepo.emailExists(email);
 				if(password.equals(adminData.getPassword()))
 				{
 					System.out.println("Hey Password got matched");
