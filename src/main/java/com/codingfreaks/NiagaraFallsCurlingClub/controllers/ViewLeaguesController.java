@@ -1,7 +1,5 @@
 package com.codingfreaks.NiagaraFallsCurlingClub.controllers;
 
-
-
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,34 +27,35 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 public class ViewLeaguesController {
 
-    String userId;
+    String adminId;
 
     @Autowired
     private LeagueRepository leagueRepository;
- 
+
     @Autowired
     private TournamentRequestRepository tournamentRequestRepository;
 
-    @RequestMapping(value="/view_leagues", method = RequestMethod.GET)
-	public String tournaments(Model model,RedirectAttributes redirectAttrs,@RequestParam("uid") String uid) {
-   
-        model.addAttribute("userid", uid);
-        userId=uid;
+    @RequestMapping(value = "/view_leagues", method = RequestMethod.GET)
+    public String tournaments(Model model, RedirectAttributes redirectAttrs, @RequestParam("aid") String aid) {
+
+        model.addAttribute("userid", aid);
+        adminId = aid;
         model.addAttribute("leaguesList", totalLeagues());
-		return "views/viewLeagues";
-	}
-
-    @PostMapping(value="/navigateToLeague")
-	public String sendTournamentRegisterRequest(Model model,RedirectAttributes redirectAttrs,@RequestParam("leagueId") String leagueId) {
-     
-        redirectAttrs.addAttribute("leagueId",leagueId);
-		return "redirect:view_particular_league";
-	}
-
-    private List<League> totalLeagues(){
-         System.out.println(leagueRepository.findAll());
-      List<League> leagues =  leagueRepository.findAll();
-      return leagues;
+        return "views/viewLeagues";
     }
-    
+
+    @PostMapping(value = "/navigateToLeague")
+    public String sendTournamentRegisterRequest(Model model, RedirectAttributes redirectAttrs,
+            @RequestParam("leagueId") String leagueId) {
+
+        redirectAttrs.addAttribute("leagueId", leagueId);
+        return "redirect:view_particular_league";
+    }
+
+    private List<League> totalLeagues() {
+        System.out.println(leagueRepository.findAll());
+        List<League> leagues = leagueRepository.findAll();
+        return leagues;
+    }
+
 }

@@ -6,5 +6,21 @@
 </head>
 <body>
  		finally welcome Admin, good to see you here
+
+
+
+
+		 <form th:action="@{/createEventNavigate}" method="POST">
+			<button type="submit">Create Event</button>
+		</form>
+	
+		<form th:action="@{/createLeagueNavigate}" method="POST">
+			<button type="submit">Create League</button>
+		</form>
+	
+	
+		<form th:action="@{/viewLeaguesAdmin}" method="POST">
+			<button type="submit">View Leagues Admin</button>
+		</form>
 </body>
 </html>

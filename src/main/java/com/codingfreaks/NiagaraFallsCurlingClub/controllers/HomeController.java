@@ -25,109 +25,54 @@ public class HomeController {
     String userId;
     @Autowired
     private TournamentRequestRepository tournamentRequestRepository;
- 
 
-    @RequestMapping(value="/home", method = RequestMethod.GET)
-	public String signIn(Model model,RedirectAttributes redirectAttrs,@RequestParam("uid") String uid) {
-   
-        System.out.println("USER ID RECEIVED : "+uid);
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
+    public String signIn(Model model, RedirectAttributes redirectAttrs, @RequestParam("uid") String uid) {
+
+        System.out.println("USER ID RECEIVED : " + uid);
         model.addAttribute("userid", uid);
-        userId=uid;
+        userId = uid;
         model.addAttribute("name", "ANUJ");
-		return "views/home";
-	}
-
-
-    
+        return "views/home";
+    }
 
     @RequestMapping("/createTournamentNavigate")
-    public String createTournamentNavigate(
-        Model model, RedirectAttributes redirectAttrs
-    ) {
+    public String createTournamentNavigate(Model model, RedirectAttributes redirectAttrs) {
         redirectAttrs.addAttribute("uid", userId);
         return "redirect:create_tournament";
     }
 
-   
-    
     @RequestMapping("/tournamentNavigate")
-    public String tournamentNavigate(
-        Model model,  RedirectAttributes redirectAttrs
-    ) {
+    public String tournamentNavigate(Model model, RedirectAttributes redirectAttrs) {
         redirectAttrs.addAttribute("uid", userId);
         return "redirect:tournaments";
     }
 
-
     @PostMapping("/editProfileNavigate")
-    public String editProfileNavigate(
-        Model model,  RedirectAttributes redirectAttrs
-    ) {
-        System.out.println("Edit Profile : "+userId);
+    public String editProfileNavigate(Model model, RedirectAttributes redirectAttrs) {
+        System.out.println("Edit Profile : " + userId);
         redirectAttrs.addAttribute("uid", userId);
         return "redirect:editprofile";
     }
 
-
-
     @PostMapping("/setupMembershipNavigate")
-    public String setupMembershipNavigate(
-        Model model,  RedirectAttributes redirectAttrs
-    ) {
-        System.out.println("Edit Profile : "+userId);
+    public String setupMembershipNavigate(Model model, RedirectAttributes redirectAttrs) {
+        System.out.println("Edit Profile : " + userId);
         redirectAttrs.addAttribute("uid", userId);
         return "redirect:membership";
     }
-    
-    
-
-    @PostMapping("/createEventNavigate")
-    public String createEventNavigate(
-        Model model,  RedirectAttributes redirectAttrs
-    ) {
-        System.out.println("Edit Profile : "+userId);
-        redirectAttrs.addAttribute("uid", userId);
-        return "redirect:create_event";
-    }
-    
 
     @PostMapping("/matchNavigate")
-    public String matchNavigate(
-        Model model,  RedirectAttributes redirectAttrs
-    ) {
-        System.out.println("Edit Profile : "+userId);
+    public String matchNavigate(Model model, RedirectAttributes redirectAttrs) {
+        System.out.println("Edit Profile : " + userId);
         redirectAttrs.addAttribute("uid", userId);
         return "redirect:matches";
     }
-    
-
-    @PostMapping("/createLeagueNavigate")
-    public String createLeagueNavigate(
-        Model model,  RedirectAttributes redirectAttrs
-    ) {
-        redirectAttrs.addAttribute("uid", userId);
-        return "redirect:create_league";
-    }
-
 
     @PostMapping("/navigateLeagueSelection")
-    public String navigateLeagueSelection(
-        Model model,  RedirectAttributes redirectAttrs
-    ) {
+    public String navigateLeagueSelection(Model model, RedirectAttributes redirectAttrs) {
         redirectAttrs.addAttribute("uid", userId);
         return "redirect:league_selection";
     }
-
-
-
-    @PostMapping("/viewLeaguesAdmin")
-    public String viewLeaguesAdmin(
-        Model model,  RedirectAttributes redirectAttrs
-    ) {
-        redirectAttrs.addAttribute("uid", userId);
-        return "redirect:view_leagues";
-    }
-    
-    
 
 }

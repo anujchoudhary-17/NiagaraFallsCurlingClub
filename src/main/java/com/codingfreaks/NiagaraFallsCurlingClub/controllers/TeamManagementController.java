@@ -33,13 +33,12 @@ public class TeamManagementController {
   @Autowired
   private UserRepository userRepository;
 
-
   String leagueId;
 
-  @RequestMapping(value="/team_management",method=RequestMethod.GET)
-  public String team_management(Model model, @RequestParam("leagueId") String lid){
+  @RequestMapping(value = "/team_management", method = RequestMethod.GET)
+  public String team_management(Model model, @RequestParam("leagueId") String lid) {
 
-    leagueId=lid;
+    leagueId = lid;
     model.addAttribute("userList", totalUsers());
     User user = findUser();
 
@@ -54,13 +53,13 @@ public class TeamManagementController {
 
   }
 
-  @RequestMapping(value="/create_team",method = RequestMethod.POST)
-  public String createTeam(RedirectAttributes redirectAttrs, @RequestParam String teamName){
+  @RequestMapping(value = "/create_team", method = RequestMethod.POST)
+  public String createTeam(RedirectAttributes redirectAttrs, @RequestParam String teamName) {
 
-    List<User> listUser=new ArrayList<User>();
-    List<User> allUsers=totalUsers();
+    List<User> listUser = new ArrayList<User>();
+    List<User> allUsers = totalUsers();
 
-    Team team=new Team(teamName,leagueId);
+    Team team = new Team(teamName, leagueId);
 
     teamRepository.save(team);
 
@@ -69,70 +68,60 @@ public class TeamManagementController {
   }
 
   @PostMapping(value = "/saveTeam")
-  public String saveTeams(RedirectAttributes redirectAttrs,ModelMap model,@RequestParam String teamIdPlz,@ModelAttribute("user") User userWithUserId){
+  public String saveTeams(RedirectAttributes redirectAttrs, ModelMap model, @RequestParam String teamIdPlz,
+      @ModelAttribute("user") User userWithUserId) {
 
-    System.out.println("Isski maa kaa ----------"+userWithUserId.getTeamId().toString());
+    System.out.println("Isski maa kaa ----------" + userWithUserId.getTeamId().toString());
 
-
-    updateUser(userWithUserId.getTeamId(),teamIdPlz);
-    //---- Take user here and 
+    updateUser(userWithUserId.getTeamId(), teamIdPlz);
+    // ---- Take user here and
     redirectAttrs.addAttribute("leagueId", leagueId);
     return "redirect:team_management";
   }
 
-  private List<User> totalUsers(){
+  private List<User> totalUsers() {
 
     List<User> users = userRepository.usersWithParticularLeagueId(leagueId);
 
-    List<User> finalUsers=new ArrayList<>();
+    List<User> finalUsers = new ArrayList<>();
 
-    for(int i=0;i<users.size();i++)
-    {
-        System.out.println("Hey this is Name "+users.get(i).getFirstName());
-       // System.out.println("This is my : "+users.get(i).getTeamId());
-      List<String> teamIds =   users.get(i).getTeamId();
-    
-     if(teamIds==null)
-     {
+    for (int i = 0; i < users.size(); i++) {
+      System.out.println("Hey this is Name " + users.get(i).getFirstName());
+      // System.out.println("This is my : "+users.get(i).getTeamId());
+      List<String> teamIds = users.get(i).getTeamId();
+
+      if (teamIds == null) {
         finalUsers.add(users.get(i));
-     }
-     else
-     {
-        for(int j=0;j<teamIds.size();j++)
-        {
-          Team team =  teamRepository.findById(teamIds.get(j)).orElse(null);
-          if(!team.getLeagueId().equals(leagueId))
-          {
-              finalUsers.add(users.get(i));
+      } else {
+        for (int j = 0; j < teamIds.size(); j++) {
+          Team team = teamRepository.findById(teamIds.get(j)).orElse(null);
+          if (!team.getLeagueId().equals(leagueId)) {
+            finalUsers.add(users.get(i));
           }
         }
-     }
+      }
     }
 
     System.out.println("Koi bhi nhi h lol");
-    
-  //  List<User> users =  userRepository.findAll();
+
+    // List<User> users = userRepository.findAll();
     return finalUsers;
   }
 
-  private List<Team> totalTeams(){
-    List<Team> teams=teamRepository.teamsWithParticularLeagueId(leagueId);
-    
+  private List<Team> totalTeams() {
+    List<Team> teams = teamRepository.teamsWithParticularLeagueId(leagueId);
+
     return teams;
   }
 
-  private void updateUser(List<String> userIdList, String teamId){
-    for(int i=0;i<userIdList.size();i++)
-    {
+  private void updateUser(List<String> userIdList, String teamId) {
+    for (int i = 0; i < userIdList.size(); i++) {
       List<String> tids;
       User user = userRepository.findById(userIdList.get(i)).orElse(null);
-      if(user.getTeamId()==null)
-      {
-        tids =  new ArrayList<>();
-      }
-      else
-      {
-       tids = user.getTeamId();
+      if (user.getTeamId() == null) {
+        tids = new ArrayList<>();
+      } else {
+        tids = user.getTeamId();
       }
       tids.add(teamId);
       user.setTeamId(tids);
@@ -141,8 +130,7 @@ public class TeamManagementController {
     }
   }
 
-  private User findUser()
-  {
+  private User findUser() {
     User user = userRepository.findById("6140d83e3be3d26a996723d3").orElse(null);
     return user;
   }

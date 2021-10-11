@@ -15,25 +15,26 @@ import com.codingfreaks.NiagaraFallsCurlingClub.repositories.CreateAnEventReposi
 
 @Controller
 public class CreateEventController {
-	
+
 	@Autowired
 	private CreateAnEventRepository eventRepo;
-	
-	String userId;
-	
-	@RequestMapping(value="/create_event", method = RequestMethod.GET)
-	public String signUp(Model model,@RequestParam("uid") String uid) {
-		userId = uid;
+
+	String adminId;
+
+	@RequestMapping(value = "/create_event", method = RequestMethod.GET)
+	public String signUp(Model model, @RequestParam("aid") String aid) {
+		adminId = aid;
 		return "views/createEvent";
 	}
 
-	@RequestMapping(value="/create_event", method = RequestMethod.POST)
-	public String save(ModelMap model, RedirectAttributes redirectAttrs, @RequestParam String eventName,@RequestParam String eventStartDT,@RequestParam String eventEndDT,@RequestParam String eventDescription) {
-	 	       Event event = new Event(eventName, eventStartDT, eventEndDT, eventDescription);
-		        eventRepo.save(event);
-				model.addAttribute("transformationForm", model);
-				 redirectAttrs.addAttribute("uid", userId);
-		         return "redirect:home";
+	@RequestMapping(value = "/create_event", method = RequestMethod.POST)
+	public String save(ModelMap model, RedirectAttributes redirectAttrs, @RequestParam String eventName,
+			@RequestParam String eventStartDT, @RequestParam String eventEndDT, @RequestParam String eventDescription) {
+		Event event = new Event(eventName, eventStartDT, eventEndDT, eventDescription);
+		eventRepo.save(event);
+		model.addAttribute("transformationForm", model);
+		redirectAttrs.addAttribute("aid", adminId);
+		return "redirect:home";
 	}
-	
+
 }
