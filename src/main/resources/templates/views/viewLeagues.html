@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>View League</title>
+        <title>View Leagues</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
  
   </head>
   
-  <body>
+  <body style="background-color: #161616; color: white;"> 
+    <div class="col text-center">
     <h1>Leagues</h1>
-    <table>
+    <table style="margin-left: auto;
+    margin-right: auto;">
         <tr th:each="league : ${leaguesList}">
+            
             <form th:action="@{/navigateToLeague?leagueId=} + ${league.getLeagueId()}" method="POST"> 
-            <div>
-                    <label th:text="${league.leagueName}"/><br>
-                    <input type="submit" value="View League">
+           
+                <td><label th:text="${league.leagueName}"/></td>        
+                    <td><input type="submit" class="btn" style="background-color: #b53533; margin-left: 50px; color: white; " value="View League"></td>
                     <br>
-            </div>
+                    <br>
+            
         </form>
         </tr>
     </table>
-  
+</div>
   
   </body></html>

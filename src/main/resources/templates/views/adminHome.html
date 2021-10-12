@@ -2,25 +2,40 @@
 <html>
 <head xmlns:th="http://www.thymeleaf.org">
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Home</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="css/menu.css">
 </head>
 <body>
- 		finally welcome Admin, good to see you here
+	<div style="   
+	background-color:  rgb(22, 22, 22);;
+	width:700px;
+	min-height: 550px;
+	border: 5px solid #A2AAAD;;
+	padding: 50px;
+	margin: 20px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 45px;
+	">
+		 <form th:action="@{/createTournamentNavigate}" method="POST" style="padding: 5px;">
+			<button type="submit" class="button-52">Create Tournament</button>
+		</form>
 
-
-
-
-		 <form th:action="@{/createEventNavigate}" method="POST">
-			<button type="submit">Create Event</button>
+		 <form th:action="@{/createEventNavigate}" method="POST" style="padding: 5px;">
+			<button type="submit" class="button-52">Create Event</button>
 		</form>
 	
-		<form th:action="@{/createLeagueNavigate}" method="POST">
-			<button type="submit">Create League</button>
+		<form th:action="@{/createLeagueNavigate}" method="POST" style="padding: 5px;">
+			<button type="submit" class="button-52">Create League</button>
 		</form>
 	
 	
-		<form th:action="@{/viewLeaguesAdmin}" method="POST">
-			<button type="submit">View Leagues Admin</button>
+		<form th:action="@{/viewLeaguesAdmin}" method="POST" style="padding: 5px;">
+			<button type="submit" class="button-52">View Leagues Admin</button>
 		</form>
+		</div>
 </body>
 </html>

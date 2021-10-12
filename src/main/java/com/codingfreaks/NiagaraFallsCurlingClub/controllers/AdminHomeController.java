@@ -22,6 +22,12 @@ public class AdminHomeController {
         return "views/adminHome";
     }
 
+    @RequestMapping("/createTournamentNavigate")
+    public String createTournamentNavigate(Model model, RedirectAttributes redirectAttrs) {
+        redirectAttrs.addAttribute("aid", adminId);
+        return "redirect:create_tournament";
+    }
+
     @PostMapping("/createEventNavigate")
     public String createEventNavigate(Model model, RedirectAttributes redirectAttrs) {
         redirectAttrs.addAttribute("aid", adminId);

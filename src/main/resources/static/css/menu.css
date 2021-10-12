@@ -1,11 +1,75 @@
+@import "https://fonts.googleapis.com/css?family=Playfair+Display:400,700i,900i";
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Playfair Display", serif;
   margin: 0;
+
+  background-color: #a2aaad;
+
+  color: rgb(3, 3, 4);
+  text-rendering: optimizeLegibility;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* background-color: $purple; */
+  font-size: 17px;
+  overflow: hidden;
+  font-weight: 400;
+}
+
+.button-52 {
+  font-size: 26px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  padding: 13px 20px 13px;
+  outline: 0;
+  border: 1px solid black;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border-radius: 45px;
+}
+
+.button-52:after {
+  content: "";
+  background-color: rgb(181, 53, 57);
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+  transition: 0.2s;
+  border-radius: 45px;
+}
+
+.button-52:hover:after {
+  top: 0px;
+  left: 0px;
+}
+
+@media (min-width: 768px) {
+  .button-52 {
+    padding: 13px 50px 13px;
+  }
 }
 
 .navbar {
   overflow: hidden;
-  background-color: #333; 
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgb(22, 22, 22);
+
+  border-radius: 45px;
 }
 
 .navbar a {
@@ -23,7 +87,7 @@ body {
 }
 
 .subnav .subnavbtn {
-  font-size: 16px;  
+  font-size: 16px;
   border: none;
   outline: none;
   color: white;
@@ -33,15 +97,17 @@ body {
   margin: 0;
 }
 
-.navbar a:hover, .subnav:hover .subnavbtn, .subnavright:hover .subnavbtn {
-  background-color: red;
+.navbar a:hover,
+.subnav:hover .subnavbtn,
+.subnavright:hover .subnavbtn {
+  background-color: rgb(181, 53, 57);
 }
 
 .subnav-content {
   display: none;
   position: absolute;
   left: 0;
-  background-color: red;
+  background-color: rgb(181, 53, 57);
   width: 100%;
   z-index: 1;
 }
@@ -50,7 +116,7 @@ body {
   display: none;
   position: absolute;
   right: 0;
-  background-color: red;
+  background-color: rgb(181, 53, 57);
   width: 10%;
   z-index: 1;
 }
@@ -77,30 +143,29 @@ body {
   color: black;
 }
 
-.subnav:hover .subnav-content{
-  display:block;
+.subnav:hover .subnav-content {
+  display: block;
 }
 
-.subnavright:hover .subnavright-content{
-  display:grid;
+.subnavright:hover .subnavright-content {
+  display: grid;
 }
 
-
-.imgdiv{
+.imgdiv {
   width: 6%;
 }
 
-img{
-  max-width:60%;
+img {
+  max-width: 60%;
 }
 
-.subnavright{
+.subnavright {
   float: right;
   overflow: hidden;
 }
 
 .subnavright .subnavbtn {
-  font-size: 16px;  
+  font-size: 16px;
   border: none;
   outline: none;
   color: white;

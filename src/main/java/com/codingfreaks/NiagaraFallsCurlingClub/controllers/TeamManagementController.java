@@ -86,25 +86,31 @@ public class TeamManagementController {
     List<User> finalUsers = new ArrayList<>();
 
     for (int i = 0; i < users.size(); i++) {
-      System.out.println("Hey this is Name " + users.get(i).getFirstName());
-      // System.out.println("This is my : "+users.get(i).getTeamId());
+
       List<String> teamIds = users.get(i).getTeamId();
 
       if (teamIds == null) {
         finalUsers.add(users.get(i));
       } else {
+        boolean isAlreadyInLeaguesTeam = false;
         for (int j = 0; j < teamIds.size(); j++) {
           Team team = teamRepository.findById(teamIds.get(j)).orElse(null);
-          if (!team.getLeagueId().equals(leagueId)) {
-            finalUsers.add(users.get(i));
+          if (team.getLeagueId().equals(leagueId)) {
+            isAlreadyInLeaguesTeam = true;
           }
+        }
+        if (!isAlreadyInLeaguesTeam) {
+          finalUsers.add(users.get(i));
         }
       }
     }
 
-    System.out.println("Koi bhi nhi h lol");
+    if (finalUsers.size() == 0) {
+      User user = new User();
+      user.setFirstName("Sorry No users found in this league without any team");
+      finalUsers.add(user);
+    }
 
-    // List<User> users = userRepository.findAll();
     return finalUsers;
   }
 
