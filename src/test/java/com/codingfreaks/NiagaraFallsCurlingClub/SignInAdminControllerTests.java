@@ -27,9 +27,9 @@ class SignInAdminControllerTests {
 	@SuppressWarnings("static-access")
 	@Test
 	void testEmailAddressBad() {
-		String emailAddress = "";
+		String emailAddress = null;
 		boolean result = signInAdminController.isValidEmail(emailAddress);
-		assertFalse(result == false);
+		assertFalse(result);
 	}
 
 	@SuppressWarnings("static-access")

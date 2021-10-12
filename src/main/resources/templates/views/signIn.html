@@ -7,10 +7,13 @@
     </head>
     <body>
         <div class="wrapper">
-            <div class="formed">
+            <div class="formed" th:style="'background: url(/images/signinImage.jpg) ; background-size: cover;
+            background-repeat: no-repeat; '">
                 <form method="post">
         
-                    <h1>Sign in </h1>
+                    <h1 style="color: white; font-size: 5em;
+                    margin: 0;
+                    -webkit-text-stroke: 2px black;">Sign in </h1>
                     <br><br>
                     <input id="email" type="text" required name="email" class="placehAnimation"/>
                     <label for="email" alt="Email" placeholder="Email" class="placehAnimationLabel"></label>
@@ -23,7 +26,7 @@
         
                     <br><br>
 
-                    <input class="SignIn" type="submit" value="Sign in">
+                    <input class="SignIn" type="submit" style="color: white;" value="Sign in">
         
                     <div class="SignUp">
                         <p>Don't have an account? <a href="signup">Sign up</a>.</p>

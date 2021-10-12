@@ -76,6 +76,11 @@ public class SignInAdminController {
 	}
 
 	public static boolean isValidEmail(String emailAddress) {
+		
+		if(emailAddress==null || emailAddress.length()==0)
+			return false;
+		
+		
 		Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailAddress);
 		if (matcher.matches()) {
 			return true;

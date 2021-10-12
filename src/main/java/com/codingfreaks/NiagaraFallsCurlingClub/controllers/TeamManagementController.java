@@ -34,10 +34,10 @@ public class TeamManagementController {
   private UserRepository userRepository;
 
   String leagueId;
-
+  boolean isUserListEmpty;
   @RequestMapping(value = "/team_management", method = RequestMethod.GET)
   public String team_management(Model model, @RequestParam("leagueId") String lid) {
-
+    isUserListEmpty=false;
     leagueId = lid;
     model.addAttribute("userList", totalUsers());
     User user = findUser();
@@ -46,6 +46,7 @@ public class TeamManagementController {
     model.addAttribute("teamSelect", "123");
     model.addAttribute("userObj", user);
 
+    model.addAttribute("isUserListEmpty", isUserListEmpty);
     System.out.println(totalUsers().get(0).getFirstName());
 
     leagueId = lid;
@@ -108,6 +109,7 @@ public class TeamManagementController {
     if (finalUsers.size() == 0) {
       User user = new User();
       user.setFirstName("Sorry No users found in this league without any team");
+      isUserListEmpty = true;
       finalUsers.add(user);
     }
 

@@ -31,6 +31,6 @@ public class CreateLeagueController {
     leagueRepository.save(league);
     System.out.println(leagueName);
     redirectAttributes.addAttribute("aid", adminId);
-    return "redirect:home";
+    return "redirect:adminHome";
   }
 }

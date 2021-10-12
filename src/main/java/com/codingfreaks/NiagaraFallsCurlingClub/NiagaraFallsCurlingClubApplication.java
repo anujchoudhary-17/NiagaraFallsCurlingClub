@@ -14,3 +14,4 @@ public class NiagaraFallsCurlingClubApplication {
 		SpringApplication.run(NiagaraFallsCurlingClubApplication.class, args);
 	}
 }
+																																							

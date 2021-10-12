@@ -6,18 +6,19 @@
 
   <form action="/create_team" method="post">
   <h1 class="text-center">Create Team</h1>
-  <div class="row">
-    <div  class="col-md-8 mx-auto" style="margin-left: auto;
-    margin-right: auto;">
+
       <br>
+      <div  class="col text-center">
       <label>ENTER TEAM NAME</label>
-      <input type="text"  class="form-control m-10" name="teamName" style="width: fit-content;" placeholder="Enter team name"/>
+    </div>
+    <div class="d-flex justify-content-evenly"style="display : inline">
+      <input type="text"  class="form-control" name="teamName" style="width: fit-content;" placeholder="Enter team name"/>
+      </div>
       <br><br>
        <div class="col text-center"> 
       <input type="submit" class="btn btn-danger w-15" value="Add Team" />
       </div><br><br>
-    </div>
-  </div>
+
     
   </form>
 <br>
@@ -37,7 +38,7 @@
           <label for="items" style="font-size: larger;">Choose a team:</label>
           <select id="items" name="teamIdPlz" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"> 
               
-             <option th:each="team : ${teamList}"  th:value="${team.teamId}" th:text="${team.teamName}">
+             <option th:each="team : ${teamList}"  th:value="${team.teamId}" th:text="${team.teamName}" >
 
              </option>
            </select>
@@ -46,8 +47,9 @@
         <div >
           <h3>Users</h3>
            <div th:each="user : ${userList}">
-            
-            <input type="checkbox" th:field="*{teamId}" th:value="${user.userId}" autocomplete="off" >
+            <div th:if="${!isUserListEmpty}" style="display: inline;">
+            <input type="checkbox" th:field="*{teamId}" th:value="${user.userId}" autocomplete="off">
+          </div>
             <label th:text="${user.firstName}"></label>
          
         </div>
