@@ -1,22 +1,113 @@
+<!DOCTYPE html>
 <html>
-    <header>
-  
-    </header>
-  
-    <body>
-        <label th:text="${matchDetails.matchName}"/><br>
-        <br><br>
-      <br><br>
-      <label th:text="${matchDetails.matchName}"/><br>
-      <label th:text="${matchDetails.team1Name}"/><br>
-      <label th:text="${matchDetails.team2Name}"/><br>
-      <label th:text="${matchDetails.team1Score}"/><br>
-      <label th:text="${matchDetails.team2Score}"/><br>
-      <label th:text="${matchDetails.sheetNumber}"/><br>
-      <label th:text="${matchDetails.dateAndTime}"/><br>
+    <head>
+        <title>Upcoming matches</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" th:href="@{/css/match.css}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+    </head>
+<body> 
+
+  <div class="navbar" style="margin-top: 0.01cm; margin-left: 0.2cm; margin-right: 0.2cm; border-radius: 45px;   
+  font-family: 'Playfair Display', serif;">
+
+    <div class="subnav imgdiv">
+      <img class="imgbtnsize" src="logo.png" style="width: 35px; background-color: none; 
+      margin-left: 0.2cm; margin-top: 0.125cm;">
+    </div>
+    <a href="home">Home</a>
+    <div class="subnav">
+      <button class="subnavbtn">Tournament <i class=""></i></button>
+      <div class="subnav-content">
+        <a href="tournament">All Tournaments</a>
+        <a href="pasttournament">Past Tournaments</a>
+        <a href="futuretournament">Future Tournament</a>
       </div>
-    </body>
+    </div> 
+    <div class="subnav">
+      <button class="subnavbtn">Event <i class=""></i></button>
+      <div class="subnav-content">
+        <a href="event">Events This Month</a>
+        <a href="allevents">NFCC Event List</a>
+      </div>
+    </div> 
+    <div class="subnav">
+      <button class="subnavbtn">About Us <i class=""></i></button>
+      <div class="subnav-content">
+        <a href="link1">Link 1</a>
+        <a href="link2">Link 2</a>
+        <a href="link3">Link 3</a>
+        <a href="link4">Link 4</a>
+      </div>
+    </div>
+    <a href="contact">Help</a>
   
-  </html>
+    <div class="subnavright">
+      <button class="subnavbtn">Profile<i class=""></i></button>
+      <div class="subnavright-content">
+        <a href="account">My Account</a> 
+        <a href="editprofile">Edit Profile</a>
+        <a href="signout">Sign Out</a>
+      </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="card">
+    <div class="card_title">
+      
+      <h2>Upcoming Match</h2>
+      <!--<p id="match_type">T20 1 of 60</p>-->
+      <br>
   
+      <b><label id="match_type" th:text="${matchDetails.matchName}"/></b><br>
+      <label id="match_type" th:text="${matchDetails.dateAndTime}"/><br>
+      <label> Sheet Number : </label><label th:text="${matchDetails.sheetNumber}"/><br>
+
+    </div>
+    <div class="match_info">
+      <div class="team_name">
+        <div class="team1">
+          <img
+
+          th:src="@{/images/TorontoFC.png}" 
+            alt="96x96"
+
+            width="96px"
+
+            height="96px"
+          />
+          <h3 th:text="${matchDetails.team1Name}"></h3>
+        </div>
+      
+      </div>
+
+      <div class="date_time">
+
+        </div>
+
+      <div class="vs" style="margin-left: 20px;">
+        <p>vs</p>
+      </div>
+   
+      <div class="date_time">
+        <div class="team2">
+          <img
+          th:src="@{/images/logo.png}" 
+            alt="96x96"
+            width="96px"
+
+            height="96px"
+          />
+          <h3 th:text="${matchDetails.team2Name}"></h3>
+        </div>
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+</body>

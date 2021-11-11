@@ -54,7 +54,7 @@ public class UserHomeController {
     @PostMapping("/navigateAllMatches")
     public String navigateAllMatches(Model model, RedirectAttributes redirectAttrs) {
         redirectAttrs.addAttribute("uid", userId);
-        return "redirect:upcomingMatches";
+        return "redirect:upcoming_matches";
     }
 
 }

@@ -37,7 +37,7 @@ public class UpcomingMatchesController {
     @Autowired
     private MatchRepository matchRepository;
 
-    @RequestMapping(value = "/upcomingMatches", method = RequestMethod.GET)
+    @RequestMapping(value = "/upcoming_matches", method = RequestMethod.GET)
     public String tournaments(Model model, RedirectAttributes redirectAttrs, @RequestParam("uid") String uid) {
 
         model.addAttribute("userid", uid);

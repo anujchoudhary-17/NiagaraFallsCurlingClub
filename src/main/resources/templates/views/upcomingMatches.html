@@ -1,35 +1,94 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <title>Tournament</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link rel="stylesheet" th:href="@{/css/tournament.css}">
-        <script type="text/javascript" th:src="@{/js/tournament.js}"></script>
+<html>
+<head>
+    <title>Upcoming Matches</title>
+  <link rel="stylesheet" th:href="@{/css/matched.css}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    </head>
-    <body>
-    
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body style="background-color: #161616; color: white;">
+    <div class="navbar" style="margin-top: 0.01cm; margin-left: 0.2cm; margin-right: 0.2cm; border-radius: 45px;   
+  font-family: 'Nunito', sans-serif;">
+
+    <div class="subnav imgdiv">
+      <img class="imgbtnsize" src="logo.png" style="width: 35px; background-color: none; 
+      margin-left: 0.2cm; margin-top: 0.125cm;">
+    </div>
+    <a href="home">Home</a>
+    <div class="subnav">
+      <button class="subnavbtn">Tournament <i class=""></i></button>
+      <div class="subnav-content">
+        <a href="tournament">All Tournaments</a>
+        <a href="pasttournament">Past Tournaments</a>
+        <a href="futuretournament">Future Tournament</a>
+      </div>
+    </div> 
+    <div class="subnav">
+      <button class="subnavbtn">Event <i class=""></i></button>
+      <div class="subnav-content">
+        <a href="event">Events This Month</a>
+        <a href="allevents">NFCC Event List</a>
+      </div>
+    </div> 
+    <div class="subnav">
+      <button class="subnavbtn">About Us <i class=""></i></button>
+      <div class="subnav-content">
+        <a href="link1">Link 1</a>
+        <a href="link2">Link 2</a>
+        <a href="link3">Link 3</a>
+        <a href="link4">Link 4</a>
+      </div>
+    </div>
+    <a href="contact">Help</a>
+  
+    <div class="subnavright">
+      <button class="subnavbtn">Profile<i class=""></i></button>
+      <div class="subnavright-content">
+        <a href="account">My Account</a> 
+        <a href="editprofile">Edit Profile</a>
+        <a href="signout">Sign Out</a>
+        
+      </div>
+    </div>
+  </div>
 
 
-        <H1 class="center">Upcoming Matches</H1>
+  <br>
+  <br>
+ 
+  <table class="table table-dark">
+    <thead class="thead">
+      <tr>
+        <th scope="col">Match Name</th>
+        <th scope="col">Team 1</th>
+        <th scope="col">Team 2</th>
+        <th scope="col">Date</th>
+        <th scope="col">Sheet Number</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="match : ${usersMatches}">
+        <form th:action="@{/goToMatch?matchId=} + ${match.getMatchId()}" method="POST"> 
+
+        <th scope="row" th:text="${match.matchName}"></th>
+        <td th:text="${match.team1Name}"></td>
+        <td th:text="${match.team2Name}"></td>
+        <td th:text="${match.dateAndTime}"></td>
+        <td th:text="${match.sheetNumber}"></td>
+        <td> <input type="submit" value="View Match" class="registerBtn"> </td>
+ 
+    </form>
+      </tr>
+ 
+    </tbody>
+  </table>
 
 
-        <table>
-            <tr th:each="match : ${usersMatches}">
-                <form th:action="@{/goToMatch?matchId=} + ${match.getMatchId()}" method="POST"> 
-                <div class="tournamentDiv">
-                        <label th:text="${match.matchName}"/><br>
-                        Team 1 : <label th:text="${match.team1Name}"/><br>
-                        Team 2 : <label th:text="${match.team2Name}"/><br>
-                        Date : <label th:text="${match.dateAndTime}"/><br>
-                        Sheet Number : <label th:text="${match.sheetNumber}"/>
-                        <input type="submit" value="View Match" class="registerBtn">
-                </div>
-            </form>
-            </tr>
-        </table>
 
 
-
-    </body>
-</html>
+  </body>
+  </html>
