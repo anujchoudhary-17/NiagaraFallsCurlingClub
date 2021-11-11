@@ -35,9 +35,10 @@ public class TeamManagementController {
 
   String leagueId;
   boolean isUserListEmpty;
+
   @RequestMapping(value = "/team_management", method = RequestMethod.GET)
   public String team_management(Model model, @RequestParam("leagueId") String lid) {
-    isUserListEmpty=false;
+    isUserListEmpty = false;
     leagueId = lid;
     model.addAttribute("userList", totalUsers());
     User user = findUser();
@@ -50,7 +51,7 @@ public class TeamManagementController {
     System.out.println(totalUsers().get(0).getFirstName());
 
     leagueId = lid;
-    return "views/teamManagement.html";
+    return "views/teamManagement";
 
   }
 
@@ -72,10 +73,8 @@ public class TeamManagementController {
   public String saveTeams(RedirectAttributes redirectAttrs, ModelMap model, @RequestParam String teamIdPlz,
       @ModelAttribute("user") User userWithUserId) {
 
-    System.out.println("Isski maa kaa ----------" + userWithUserId.getTeamId().toString());
-
     updateUser(userWithUserId.getTeamId(), teamIdPlz);
-    // ---- Take user here and
+
     redirectAttrs.addAttribute("leagueId", leagueId);
     return "redirect:team_management";
   }

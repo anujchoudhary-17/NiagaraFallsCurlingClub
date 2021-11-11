@@ -51,4 +51,10 @@ public class UserHomeController {
         return "redirect:league_selection";
     }
 
+    @PostMapping("/navigateAllMatches")
+    public String navigateAllMatches(Model model, RedirectAttributes redirectAttrs) {
+        redirectAttrs.addAttribute("uid", userId);
+        return "redirect:upcomingMatches";
+    }
+
 }

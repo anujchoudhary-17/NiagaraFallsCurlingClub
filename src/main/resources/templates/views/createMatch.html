@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+
+<head>
+
+  <title>
+    Create an Event
+  </title>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <link rel="stylesheet" th:href="@{/css/createEvent.css}">
+</head>
+
+<body>
+
+
+  <div class="form-style-2">
+    <h1 id="createEventheader">Create a Match</h1>
+    <form action="" method="post">
+    <label for="matchName"><span>Match Name <span class="required">*</span></span><input type="text" class="input-field" name="matchName" value="" /></label>
+    <label for="field2"><span>Match Date <span class="required">*</span></span><input type="datetime-local" class="input-field2" name="matchDate" value="" /> To <input type="datetime-local" class="input-field2" name="eventEndDT" value="" /></label>
+
+    </select></label>
+    <label for="sheetNumber"><span>Sheet Number<span class="required">*</span></span><input type="number" class="input-field" name="sheetNumber" value="" /></label>
+    
+    <div >
+        <label for="items" style="font-size: larger;">Choose a Team 1:</label>
+        <select id="items" name="teamIdPlz" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"> 
+            
+           <option th:each="team : ${teamList}"  th:value="${team.teamId}" th:text="${team.teamName}" >
+
+           </option>
+         </select>
+      </div>
+
+      <div >
+        <label for="items" style="font-size: larger;">Choose a Team 2:</label>
+        <select id="items" name="teamIdPlz" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"> 
+            
+           <option th:each="team : ${teamList}"  th:value="${team.teamId}" th:text="${team.teamName}" >
+
+           </option>
+         </select>
+      </div>
+    <label><span> </span><input type="submit" value="Submit" /></label>
+    </form>
+    </div>
+</body>
+
+</html>

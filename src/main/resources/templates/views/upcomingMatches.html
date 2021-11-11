@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Tournament</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" th:href="@{/css/tournament.css}">
+        <script type="text/javascript" th:src="@{/js/tournament.js}"></script>
+
+    </head>
+    <body>
+    
+
+
+        <H1 class="center">Upcoming Matches</H1>
+
+
+        <table>
+            <tr th:each="match : ${usersMatches}">
+                <form th:action="@{/goToMatch?matchId=} + ${match.getMatchId()}" method="POST"> 
+                <div class="tournamentDiv">
+                        <label th:text="${match.matchName}"/><br>
+                        Team 1 : <label th:text="${match.team1Name}"/><br>
+                        Team 2 : <label th:text="${match.team2Name}"/><br>
+                        Date : <label th:text="${match.dateAndTime}"/><br>
+                        Sheet Number : <label th:text="${match.sheetNumber}"/>
+                        <input type="submit" value="View Match" class="registerBtn">
+                </div>
+            </form>
+            </tr>
+        </table>
+
+
+
+    </body>
+</html>

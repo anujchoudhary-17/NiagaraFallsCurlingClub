@@ -81,8 +81,12 @@ border-radius: 45px;
     </form>
 
     <form th:action="@{/navigateLeagueSelection}" method="POST" style="padding: 5px;">
-        <button type="submit" class="button-52">Select League</button>
-    </form>
+      <button type="submit" class="button-52">Select League</button>
+  </form>   
+  
+  <form th:action="@{/navigateAllMatches}" method="POST" style="padding: 5px;">
+    <button type="submit" class="button-52">Upcoming matches</button>
+  </form>
 
 </div>
 </body>
