@@ -43,7 +43,7 @@ public class UpcomingMatchesController {
         model.addAttribute("userid", uid);
         userId = uid;
         model.addAttribute("usersMatches", allMatchesList());
-        return "views/upcomingMatches";
+        return "views/upcomingMatches"; 
     }
 
     @PostMapping("/goToMatch")
