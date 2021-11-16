@@ -22,6 +22,17 @@ public class Match {
     private String team2Name;
     private String dateAndTime;
 
+    public Match(String matchName, String team1Id, String team2Id, int sheetNumber, String team1Name, String team2Name,
+            String dateAndTime) {
+        this.matchName = matchName;
+        this.team1Id = team1Id;
+        this.team2Id = team2Id;
+        this.sheetNumber = sheetNumber;
+        this.team1Name = team1Name;
+        this.team2Name = team2Name;
+        this.dateAndTime = dateAndTime;
+    }
+
     public String getTeam1Name() {
         return team1Name;
     }
@@ -98,8 +109,8 @@ public class Match {
         return team1Score;
     }
 
-    public void setTeam1Score(int team1Score) {
-        this.team1Score = team1Score;
+    public void setTeam1Score(int team1Score2) {
+        this.team1Score = team1Score2;
     }
 
     public int getTeam2Score() {

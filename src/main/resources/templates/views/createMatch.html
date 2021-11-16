@@ -3,29 +3,29 @@
 <html>
 
 <head>
-
   <title>
-    Create an Event
+    Create a Match
   </title>
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <link rel="stylesheet" th:href="@{/css/createEvent.css}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" th:href="@{/css/createEvent.css}">
 </head>
 
-<body>
+<body style="background-color: #161616; color: white;">
 
 
   <div class="form-style-2">
     <h1 id="createEventheader">Create a Match</h1>
-    <form action="" method="post">
+    <form action="/create_match" method="post">
     <label for="matchName"><span>Match Name <span class="required">*</span></span><input type="text" class="input-field" name="matchName" value="" /></label>
-    <label for="field2"><span>Match Date <span class="required">*</span></span><input type="datetime-local" class="input-field2" name="matchDate" value="" /> To <input type="datetime-local" class="input-field2" name="eventEndDT" value="" /></label>
+    <label for="field2"><span>Match Date <span class="required">*</span></span><input type="datetime-local" class="input-field2" name="matchDate" value="" /></label>
 
     </select></label>
     <label for="sheetNumber"><span>Sheet Number<span class="required">*</span></span><input type="number" class="input-field" name="sheetNumber" value="" /></label>
     
     <div >
         <label for="items" style="font-size: larger;">Choose a Team 1:</label>
-        <select id="items" name="teamIdPlz" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"> 
+        <select id="items" name="teamId1" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"> 
             
            <option th:each="team : ${teamList}"  th:value="${team.teamId}" th:text="${team.teamName}" >
 
@@ -35,16 +35,49 @@
 
       <div >
         <label for="items" style="font-size: larger;">Choose a Team 2:</label>
-        <select id="items" name="teamIdPlz" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"> 
+        <select id="items" name="teamId2" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"> 
             
            <option th:each="team : ${teamList}"  th:value="${team.teamId}" th:text="${team.teamName}" >
 
            </option>
          </select>
       </div>
-    <label><span> </span><input type="submit" value="Submit" /></label>
+    <label><span> </span><input type="submit" value="Create Match" style="background-color: #b53533; margin-left: 50px; color: white;"/></label>
     </form>
+
+
+    <br>
+    <br>
+    <br>
+   <h2>Edit Matches</h2>
+    <table class="table table-dark">
+      <thead class="thead">
+        <tr>
+          <th scope="col">Match Name</th>
+          <th scope="col">Team 1</th>
+          <th scope="col">Team 2</th>
+          <th scope="col">Date</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="match : ${usersMatches}">
+          <form th:action="@{/goToEditMatch?mid=} + ${match.getMatchId()}" method="POST"> 
+          <th scope="row" th:text="${match.matchName}"></th>
+          <td th:text="${match.team1Name}"></td>
+          <td th:text="${match.team2Name}"></td>
+          <td th:text="${match.dateAndTime}"></td>
+          <td> <input type="submit" value="Edit Match" class="registerBtn" style="background-color: #b53533; margin-left: 50px; color: white;"> </td>
+      </form>
+        </tr>
+   
+      </tbody>
+    </table>
+
+
     </div>
+ 
+  
 </body>
 
 </html>

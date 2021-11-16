@@ -1,7 +1,5 @@
 package com.codingfreaks.NiagaraFallsCurlingClub.controllers;
 
-
-
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,26 +31,27 @@ public class ViewParticularLeague {
 
     @Autowired
     private LeagueRepository leagueRepository;
- 
+
     @Autowired
     private TournamentRequestRepository tournamentRequestRepository;
 
-    @RequestMapping(value="/view_particular_league", method = RequestMethod.GET)
-	public String tournaments(Model model,RedirectAttributes redirectAttrs,@RequestParam("leagueId") String lid) {
-   
+    @RequestMapping(value = "/view_particular_league", method = RequestMethod.GET)
+    public String tournaments(Model model, RedirectAttributes redirectAttrs, @RequestParam("leagueId") String lid) {
 
         leagueId = lid;
-		return "views/viewLeague";
-	}
+        return "views/viewLeague";
+    }
 
     @PostMapping("/teamManagementNavigate")
-    public String teamManagementNavigate(
-        Model model,  RedirectAttributes redirectAttrs
-    ) {
+    public String teamManagementNavigate(Model model, RedirectAttributes redirectAttrs) {
         redirectAttrs.addAttribute("leagueId", leagueId);
         return "redirect:team_management";
     }
-    
 
-    
+    @PostMapping("/matchManagementNavigate")
+    public String matchManagementNavigate(Model model, RedirectAttributes redirectAttrs) {
+        redirectAttrs.addAttribute("leagueId", leagueId);
+        return "redirect:create_match";
+    }
+
 }
