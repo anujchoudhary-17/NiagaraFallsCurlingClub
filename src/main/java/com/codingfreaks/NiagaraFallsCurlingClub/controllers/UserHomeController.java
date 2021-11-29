@@ -57,4 +57,10 @@ public class UserHomeController {
         return "redirect:upcoming_matches";
     }
 
+    @PostMapping("/navigateToEvents")
+    public String navigateToEvents(Model model, RedirectAttributes redirectAttrs) {
+        redirectAttrs.addAttribute("uid", userId);
+        return "redirect:view_events";
+    }
+
 }

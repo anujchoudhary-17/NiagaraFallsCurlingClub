@@ -5,6 +5,7 @@ body {
 .form-style-2 {
 	border: 2px solid black;
 	max-width: 600px;
+	margin: auto auto 30% 0;
 	padding: 20px;
 }
 .form-style-2-heading {
