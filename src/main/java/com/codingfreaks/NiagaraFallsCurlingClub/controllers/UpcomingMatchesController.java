@@ -40,7 +40,7 @@ public class UpcomingMatchesController {
     @RequestMapping(value = "/upcoming_matches", method = RequestMethod.GET)
     public String tournaments(Model model, RedirectAttributes redirectAttrs, @RequestParam("uid") String uid) {
 
-        model.addAttribute("userid", uid);
+        model.addAttribute("userId", uid);
         userId = uid;
         model.addAttribute("usersMatches", allMatchesList());
         return "views/upcomingMatches";
@@ -49,7 +49,7 @@ public class UpcomingMatchesController {
     @RequestMapping(value = "/upcoming_all_matches", method = RequestMethod.GET)
     public String upcoming_all_matches(Model model, RedirectAttributes redirectAttrs, @RequestParam("uid") String uid) {
 
-        model.addAttribute("userid", uid);
+        model.addAttribute("userId", uid);
         userId = uid;
         model.addAttribute("allMatches", allMatchList());
         return "views/upcomingAllMatches";

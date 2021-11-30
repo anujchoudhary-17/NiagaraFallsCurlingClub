@@ -1,41 +1,32 @@
-
-    <nav class="navbar" style="margin-top: 0.2cm; margin-left: 0.2cm; margin-right: 0.2cm" th:fragment="header">
-
-      <div class="subnav imgdiv">
-        <img class="imgbtnsize" th:src="@{/images/NFCClogo.jpg}" style="width: 35px; background-color: none; 
-        margin-left: 0.2cm; margin-top: 0.125cm;">
-      </div>
-      <a th:href="@{/home?uid=}+${userId}">Home</a>
-      <div class="subnav">
-        <button class="subnavbtn">Events <i class="fa fa-caret-down"></i></button>
-        <div class="subnav-content">
-          <a th:href="@{/view_events?uid=}+${userId}">Upcoming Events</a>
-          <a th:href="@{/view_events?uid=}+${userId}">Past Events</a>
-        </div>
-      </div> 
-      <div class="subnav">
-        <button class="subnavbtn">Matches <i class="fa fa-caret-down"></i></button>
-        <div class="subnav-content">
-          <a th:href="@{/upcoming_all_matches?uid=}+${userId}">All Macthes</a>
-          <a th:href="@{/upcoming_matches?uid=}+${userId}">Your Matches</a>
-        </div>
-      </div> 
-      <div class="subnav">
-        <button class="subnavbtn">Leagues & Bonspiel<i class="fa fa-caret-down"></i></button>
-        <div class="subnav-content">
-          <a th:href="@{/tournaments?uid=}+${userId}">All Tournaments</a>
-          <a th:href="@{/league_selection?uid=}+${userId}">Select League</a>
-        </div>
-      </div>
-      <a href="contact">About Us</a>
-    
-      <div class="subnavright">
-        <button class="subnavbtn">Profile<i class="fa fa-caret-down"></i></button>
-        <div class="subnavright-content">
-          <a th:href="@{/editprofile?uid=}+${userId}">Edit Profile</a>
-          <a href="signout">Sign Out</a>
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top" th:fragment="header">
+    <div>
+      <a class="navbar-brand" href="javascript:void(0)"> <img class="imgbtnsize" th:src="@{/images/NFCClogo.jpg}" style="width: 35px; background-color: none; 
+        margin-left: 0.2cm; margin-top: 0.125cm;"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mynavbar">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/home?uid=}+${userId}">Home</a>
+          </li>
+              <li><a class="dropdown-item" th:href="@{/view_events?uid=}+${userId}">Events</a></li>
           
-        </div>
+              <li><a class="dropdown-item" th:href="@{/upcoming_all_matches?uid=}+${userId}">All Macthes</a></li>
+              <li><a class="dropdown-item" th:href="@{/upcoming_matches?uid=}+${userId}">Your Matches</a></li>
+             <li><a class="dropdown-item" th:href="@{/tournaments?uid=}+${userId}">All Bonspiel</a></li>
+              <li><a class="dropdown-item" th:href="@{/league_selection?uid=}+${userId}">Select League</a></li>
+           
+        </ul>
+        <form class="d-flex">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">Profile</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" th:href="@{/editprofile?uid=}+${userId}">Edit Profile</a></li>
+              <li><a class="dropdown-item" th:href="@{/editprofile?uid=}+${userId}">Sign Out</a></li>
+            </ul>
+          </li>
+        </form>
       </div>
-    </nav>
-  
+    </div>
+  </nav>

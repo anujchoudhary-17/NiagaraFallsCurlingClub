@@ -43,7 +43,7 @@ public class ViewEventsController {
     @RequestMapping(value = "/view_events", method = RequestMethod.GET)
     public String tournaments(Model model, RedirectAttributes redirectAttrs, @RequestParam("uid") String uid) {
 
-        model.addAttribute("userid", uid);
+        model.addAttribute("userId", uid);
         userId = uid;
         model.addAttribute("allEvents", allEvents());
         return "views/viewEvents";

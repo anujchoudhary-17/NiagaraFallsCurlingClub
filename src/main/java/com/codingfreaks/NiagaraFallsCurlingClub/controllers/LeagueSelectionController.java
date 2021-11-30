@@ -42,6 +42,7 @@ public class LeagueSelectionController {
 
         model.addAttribute("leagues", allLeagues());
         user = userFound();
+        model.addAttribute("userId", userId);
 
         model.addAttribute("user", user);
         return "views/leagueSelection";
