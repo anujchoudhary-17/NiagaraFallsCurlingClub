@@ -43,7 +43,16 @@ public class UpcomingMatchesController {
         model.addAttribute("userid", uid);
         userId = uid;
         model.addAttribute("usersMatches", allMatchesList());
-        return "views/upcomingMatches"; 
+        return "views/upcomingMatches";
+    }
+
+    @RequestMapping(value = "/upcoming_all_matches", method = RequestMethod.GET)
+    public String upcoming_all_matches(Model model, RedirectAttributes redirectAttrs, @RequestParam("uid") String uid) {
+
+        model.addAttribute("userid", uid);
+        userId = uid;
+        model.addAttribute("allMatches", allMatchList());
+        return "views/upcomingAllMatches";
     }
 
     @PostMapping("/goToMatch")
@@ -76,6 +85,11 @@ public class UpcomingMatchesController {
         }
 
         return usersMatch;
+    }
+
+    private List<Match> allMatchList() {
+        return matchRepository.findAll();
+
     }
 
 }

@@ -29,6 +29,7 @@ public class UserHomeController {
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     public String signIn(Model model, RedirectAttributes redirectAttrs, @RequestParam("uid") String uid) {
         userId = uid;
+        model.addAttribute("userId", userId);
         return "views/home";
     }
 
@@ -59,6 +60,12 @@ public class UserHomeController {
 
     @PostMapping("/navigateToEvents")
     public String navigateToEvents(Model model, RedirectAttributes redirectAttrs) {
+        redirectAttrs.addAttribute("uid", userId);
+        return "redirect:view_events";
+    }
+
+    @PostMapping("/navigateToAllEvents")
+    public String navigateToAllEvents(Model model, RedirectAttributes redirectAttrs) {
         redirectAttrs.addAttribute("uid", userId);
         return "redirect:view_events";
     }

@@ -35,7 +35,7 @@
     <div class="bubble x10"></div>
     
   </div>
-
+  <div th:replace="~{fragments/navBar :: header}"></div>
 <form th:action="@{/saveLeagueDetails}" method="POST" th:object="${user}">
   <div class="style fade-in">
  
