@@ -1,39 +1,75 @@
-<!DOCTYPE html>
+<!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <title>Sign In</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link rel="stylesheet" th:href="@{/css/index.css}">
-    </head>
-    <body>
-        <div class="wrapper">
-            <div class="formed">
-                <form method="post">
-        
-                    <h1>Welcome Admin, Good to see you again</h1>
-                    <br><br>
-                    <input id="email" type="text" required name="email" class="placehAnimation"/>
-                    <label for="email" alt="Email" placeholder="Email" class="placehAnimationLabel"></label>
-        
-                   
-                    <input  class="nPassword placehAnimation" type="text" required name="password"/>
-                    <label  alt="Password" placeholder="Password" class="placehAnimationLabel"></label>
-        
-                    <c:set var="bar" value="${param.email}" scope="session"/>
-        
-                    <br><br>
+  <head>
+  	<title>Sign in Admin</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-                    <input class="SignIn" type="submit" value="Sign in">
-        
-                    
-        
-        
-                </form>
-        
-            </div>
-        
-            
-        
-        </div>
-        </body>
+	<link href="https://fonts.googleapis.com/css2?family=Nunito&family=Playfair+Display:wght@800;900&display=swap" 
+	rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+
+	</head>
+	<body class="img js-fullheight" style="background-image: url(images/bg.jpg);">
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h1 class="heading-section">Sign in</h1>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-6 col-lg-4">
+					<div class="login-wrap p-0">
+		      	<h3 class="mb-4 text-center">Have an account?</h3>
+
+		      	<form  method = "post" action="#" class="signin-form">
+		      		<div class="form-group">
+		      			<input type="text" class="form-control"  name="email" placeholder="Email" required>
+		      		</div>
+
+					  
+	            <div class="form-group">
+	              <input id="password-field" type="password" name="password" class="form-control" placeholder="Password" required>
+	              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+	            </div>
+
+				<c:set var="bar" value="${param.email}" scope="session"/>
+
+	            <div class="form-group">
+	            	<button type="submit" class="form-control btn btn-primary submit px-3">Sign In</button>
+	            </div>
+	            <div class="form-group d-md-flex">
+	            	<div class="w-50">
+		            	<label class="checkbox-wrap checkbox-primary">Remember Me
+									  <input type="checkbox" checked>
+									  <span class="checkmark"></span>
+									</label>
+								</div>
+								<div class="w-50 text-md-right">
+									<a href="#" style="color: rgb(255, 255, 255)">Forgot Password</a>
+								</div>
+	            </div>
+	          </form>
+	          <p class="w-100 text-center">&mdash;  &mdash; &mdash;  &mdash;</p>
+	          <div class="social d-flex text-center">
+	          	<a href="signup" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Sign up</a>
+	          	<a href="signinadmin" class="px-2 py-2 ml-md-1 rounded"><span class="ion-logo-twitter mr-2"></span> Sign in as an User</a>
+	          </div>
+		      </div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+
+	</body>
 </html>
+

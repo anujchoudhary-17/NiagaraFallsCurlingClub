@@ -20,8 +20,10 @@ public class CreateLeagueController {
   private LeagueRepository leagueRepository;
 
   @GetMapping(value = "/create_league")
-  public String createLeague(Model model, RedirectAttributes redirectAttrs, @RequestParam("aid") String uid) {
-    adminId = uid;
+  public String createLeague(Model model, RedirectAttributes redirectAttrs, @RequestParam("aid") String aid) {
+    adminId = aid;
+    model.addAttribute("adminId", adminId);
+
     return "views/createLeague";
   }
 

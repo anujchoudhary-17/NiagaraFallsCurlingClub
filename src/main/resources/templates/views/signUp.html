@@ -1,73 +1,85 @@
-<!DOCTYPE html>
+<!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <title>SignUp</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link rel="stylesheet" th:href="@{/css/index.css}">
-    </head>
-    <body>
-        <div class="split left" th:style="'background: url(/images/teamSignUp.png) ; background-size: cover;
-        background-repeat: no-repeat; '">
-            <div class="centre">
-                <h2>Welcome Back</h2>
-                <p>Sign In to explore the tournaments and events happening at the Niagara Falls Curling Club !</p>
+  <head>
+  	<title>Sign Up</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-               <input onclick="location.href='signin'" type="button" value="Sign In" class="SignUp" id="SignInbtn">
-               <br><br>
-            </div>
-        </div>
+	<link href="https://fonts.googleapis.com/css2?family=Nunito&family=Playfair+Display:wght@800;900&display=swap" 
+	rel="stylesheet">
 
-        <div class="split right" th:style="'background: url(/images/backgroundCurlingImage.png) ; background-size: cover;
-        background-repeat: no-repeat;'">
-            <div class="centre">
-               
-                 <form method="post">
-            
-                     <h3>CREATE ACCOUNT</h3>
-          
-                    <div id="gSignInWrapper">
-                         <label class="signinlabel">Sign up with </label> 
-                        <div id="customBtn" class="customGPlusSignIn">
-                            <span class="icon">  <!-- <img th:src="@{/images/googlesmall.png}" width="20px" height="auto" >--> </span>
-                            <span class="buttonText">Google</span>
-                         </div>
-                         <div id="customBtn" class="customGPlusSignIn">
-                            <span class="icon">  <!-- <img th:src="@{/images/googlesmall.png}" width="20px" height="auto" >--> </span>
-                            <span class="buttonText">Facebook</span>
-                         </div>
-                    </div>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="css/style.css">
 
-                    <br>
+	</head>
+	<body class="img js-fullheight" style="background-image: url(images/bg.jpg);">
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-6 col-lg-4">
+					<div class="login-wrap p-0">
+		      
+		      	<form  method = "post" action="#" class="signin-form">
 
-                    <hr>
-           
-                <input id="input" type="text" required name="firstName" class="placehAnimation"/>
-                <label for="input" alt="First name" placeholder="First name" class="placehAnimationLabel"></label>
-            
-                <input id="lname" type="text" required name="lastName" class="placehAnimation"/>
-                <label for="lname" alt="Last name" placeholder="Last name" class="placehAnimationLabel"></label>
-                
+					<div class="form-group">
+						<h1 class="heading-section">Sign up</h1>
+					</div>
+		      		<div class="form-group">
+		      			<input type="text" class="form-control"  name="firstName" 
+						  placeholder="First Name" required>
+		      		</div>
 
-                <input id="email" type="text" required name="email" class="placehAnimation"/>
-                <label for="email" alt="Email" placeholder="Email" class="placehAnimationLabel"></label>
-            
-                <input  id="pNumber" type="text" required name="phoneNumber" class="placehAnimation"/>
-                <label for="pNumber" alt="Phone Number" placeholder="Phone Number" class="placehAnimationLabel"></label>
-                
-                <input  class="nPassword placehAnimation" type="text" required name="password" />
-                <label  alt="Password" placeholder="Password" class="placehAnimationLabel"></label>
-            
-                <input  class="cPassword placehAnimation" type="text" required name="confirmPassword" />
-                <label  alt="Confirm Password" placeholder="Confirm Password" class="placehAnimationLabel"></label><br>
-                
-                <input class="SignUp" type="submit" value="Sign up">
-            
-                    
-                </form>
-            </div>
-            
-         <!-- <img th:src="@{/images/NFCClogo.jpg}" > -->
-        
-        </div>
-    </body>
+					  <div class="form-group">
+						<input type="text" class="form-control"  name="lastName" 
+						placeholder="Last Name" required>
+					</div>
+					<div class="form-group">
+						<input type="number" class="form-control"  name="phoneNumber" 
+						placeholder="Phone Number" required>
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control"  name="email" 
+						placeholder="Email" required>
+					</div>
+
+					  
+	            <div class="form-group">
+	              <input id="password-field" type="password" name="password" class="form-control" placeholder="Password" required>
+	              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+	            </div>
+
+				<div class="form-group">
+					<input id="password-field" type="password" name="password" class="form-control" placeholder="Confirm Password" required>
+					<span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+				  </div>
+
+				<c:set var="bar" value="${param.email}" scope="session"/>
+
+	            <div class="form-group">
+	            	<button type="submit" class="form-control btn btn-primary submit px-3">Sign Up</button>
+	            </div>
+	          
+	          </form>
+	       
+	          <div class="social d-flex text-center">
+	          	<a href="signup" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span>Google</a>
+	          	<a href="signinadmin" class="px-2 py-2 ml-md-1 rounded"><span class="ion-logo-twitter mr-2"></span>Sign in</a>
+	          </div>
+		      </div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+
+	</body>
 </html>
+

@@ -17,7 +17,7 @@ public class AdminHomeController {
     public String signIn(Model model, RedirectAttributes redirectAttrs, @RequestParam("aid") String adminId) {
 
         System.out.println("ADMIN ID RECEIVED : " + adminId);
-        model.addAttribute("adminid", adminId);
+        model.addAttribute("adminId", adminId);
         this.adminId = adminId;
         return "views/adminHome";
     }

@@ -24,6 +24,8 @@ public class CreateEventController {
 	@RequestMapping(value = "/create_event", method = RequestMethod.GET)
 	public String signUp(Model model, @RequestParam("aid") String aid) {
 		adminId = aid;
+		model.addAttribute("adminId", adminId);
+
 		return "views/createEvent";
 	}
 

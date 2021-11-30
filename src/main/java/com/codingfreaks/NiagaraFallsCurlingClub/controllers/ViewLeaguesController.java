@@ -38,8 +38,9 @@ public class ViewLeaguesController {
     @RequestMapping(value = "/view_leagues", method = RequestMethod.GET)
     public String tournaments(Model model, RedirectAttributes redirectAttrs, @RequestParam("aid") String aid) {
 
-        model.addAttribute("userid", aid);
         adminId = aid;
+        model.addAttribute("adminId", adminId);
+
         model.addAttribute("leaguesList", totalLeagues());
         return "views/viewLeagues";
     }

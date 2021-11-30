@@ -32,9 +32,12 @@ public class CreateTournamentController {
 
 	@RequestMapping(value = "/create_tournament", method = RequestMethod.GET)
 	public String signIn(Model model, RedirectAttributes redirectAttrs, @RequestParam("aid") String aid) {
+
 		Tournament tournament = new Tournament();
 		model.addAttribute("tournamentData", tournament);
 		adminId = aid;
+		model.addAttribute("adminId", adminId);
+
 		return "views/createTournament";
 	}
 
