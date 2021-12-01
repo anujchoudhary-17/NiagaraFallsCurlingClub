@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Create an Event</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" th:href="@{/css/event.css}">
 
 </head>
@@ -18,7 +18,7 @@
     <h1 id="createEventheader">Create a League</h1>
     <form action="/saveLeague" method="POST" id="login-form">
       League Name : <input type="text"   name="leagueName"/>
-      <input type="submit" class="btn btn-danger" value="Create League"/>
+      <input type="submit" class="btn btn-danger" style="margin-top: 4%;margin-bottom: 4%;" value="Create League"/>
     </form>
     </div>
 

@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import com.codingfreaks.NiagaraFallsCurlingClub.modelClasses.League;
 import com.codingfreaks.NiagaraFallsCurlingClub.modelClasses.Team;
 import com.codingfreaks.NiagaraFallsCurlingClub.modelClasses.User;
+import com.codingfreaks.NiagaraFallsCurlingClub.repositories.LeagueRepository;
 import com.codingfreaks.NiagaraFallsCurlingClub.repositories.TeamRepository;
 import com.codingfreaks.NiagaraFallsCurlingClub.repositories.UserRepository;
 
@@ -33,6 +35,9 @@ public class TeamManagementController {
   @Autowired
   private UserRepository userRepository;
 
+  @Autowired
+  private LeagueRepository leagueRepository;
+
   String leagueId, adminId;
   boolean isUserListEmpty;
 
@@ -48,6 +53,7 @@ public class TeamManagementController {
     model.addAttribute("teamSelect", "123");
     model.addAttribute("userObj", user);
     model.addAttribute("adminId", adminId);
+    model.addAttribute("leagueDetails", findLeague());
 
     model.addAttribute("isUserListEmpty", isUserListEmpty);
     System.out.println(totalUsers().get(0).getFirstName());
@@ -144,8 +150,15 @@ public class TeamManagementController {
   }
 
   private User findUser() {
-    User user = userRepository.findById("6140d83e3be3d26a996723d3").orElse(null);
+    List<User> users = userRepository.findAll();
+
+    User user = users.get(0);
     return user;
+  }
+
+  private League findLeague() {
+    League league = leagueRepository.findById(leagueId).orElse(null);
+    return league;
   }
 
 }

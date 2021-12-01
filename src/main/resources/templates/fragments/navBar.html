@@ -1,4 +1,4 @@
-  <nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top" th:fragment="header">
+  <nav class="navbar navbar-expand-sm navbar-dark sticky-top" style="background-color: rgb(181, 53, 57); " th:fragment="header">
     <div>
       <a class="navbar-brand" href="javascript:void(0)"> <img class="imgbtnsize" th:src="@{/images/NFCClogo.jpg}" style="width: 35px; background-color: none; 
         margin-left: 0.2cm; margin-top: 0.125cm;"></a>
@@ -10,23 +10,15 @@
           <li class="nav-item">
             <a class="nav-link" th:href="@{/home?uid=}+${userId}">Home</a>
           </li>
-              <li><a class="dropdown-item" th:href="@{/view_events?uid=}+${userId}">Events</a></li>
+              <li class="nav-item"><a class="nav-link" th:href="@{/view_events?uid=}+${userId}">Events</a></li>
           
-              <li><a class="dropdown-item" th:href="@{/upcoming_all_matches?uid=}+${userId}">All Macthes</a></li>
-              <li><a class="dropdown-item" th:href="@{/upcoming_matches?uid=}+${userId}">Your Matches</a></li>
-             <li><a class="dropdown-item" th:href="@{/tournaments?uid=}+${userId}">All Bonspiel</a></li>
-              <li><a class="dropdown-item" th:href="@{/league_selection?uid=}+${userId}">Select League</a></li>
-           
+              <li class="nav-item"><a class="nav-link" th:href="@{/upcoming_all_matches?uid=}+${userId}">All Macthes</a></li>
+              <li class="nav-item"><a class="nav-link" th:href="@{/upcoming_matches?uid=}+${userId}">Your Matches</a></li>
+             <li class="nav-item"><a class="nav-link" th:href="@{/tournaments?uid=}+${userId}">All Bonspiel</a></li>
+              <li class="nav-item"><a class="nav-link" th:href="@{/league_selection?uid=}+${userId}">Select League</a></li>
+              <li class="nav-item"><a class="nav-link" th:href="@{/editprofile?uid=}+${userId}">Edit Profile</a></li>
+              <li class="nav-item"><a class="nav-link" th:href="@{/editprofile?uid=}+${userId}">Sign Out</a></li>
         </ul>
-        <form class="d-flex">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">Profile</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" th:href="@{/editprofile?uid=}+${userId}">Edit Profile</a></li>
-              <li><a class="dropdown-item" th:href="@{/editprofile?uid=}+${userId}">Sign Out</a></li>
-            </ul>
-          </li>
-        </form>
       </div>
     </div>
   </nav>

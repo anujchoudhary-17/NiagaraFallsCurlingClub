@@ -30,6 +30,7 @@ public class EditMatchController {
 
   String userId;
   String matchId;
+  String adminId;
 
   @Autowired
   private MatchRepository matchRepository;
@@ -37,11 +38,13 @@ public class EditMatchController {
   boolean isUserListEmpty;
 
   @RequestMapping(value = "/editMatch", method = RequestMethod.GET)
-  public String editMatch(Model model, @RequestParam("mid") String mid) {
+  public String editMatch(Model model, @RequestParam("mid") String mid, @RequestParam("aid") String aid) {
 
+    adminId = aid;
     matchId = mid;
     model.addAttribute("userId", userId);
     model.addAttribute("matchId", matchId);
+    model.addAttribute("adminId", adminId);
     model.addAttribute("matchDetails", getMatchDetails());
     return "views/editMatch";
 

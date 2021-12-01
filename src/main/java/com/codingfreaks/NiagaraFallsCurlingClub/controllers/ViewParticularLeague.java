@@ -42,6 +42,7 @@ public class ViewParticularLeague {
         adminId = aid;
         leagueId = lid;
         model.addAttribute("adminId", adminId);
+        model.addAttribute("leagueDetails", findLeague());
 
         return "views/viewLeague";
     }
@@ -59,6 +60,11 @@ public class ViewParticularLeague {
         redirectAttrs.addAttribute("aid", adminId);
 
         return "redirect:create_match";
+    }
+
+    private League findLeague() {
+        League league = leagueRepository.findById(leagueId).orElse(null);
+        return league;
     }
 
 }
