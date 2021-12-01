@@ -36,16 +36,19 @@ public class CreateMatchController {
   @Autowired
   private MatchRepository matchRepository;
 
-  String leagueId;
+  String leagueId, adminId;
   boolean isUserListEmpty;
 
   @RequestMapping(value = "/create_match", method = RequestMethod.GET)
-  public String create_match(Model model, @RequestParam("leagueId") String lid) {
+  public String create_match(Model model, @RequestParam("leagueId") String lid, @RequestParam("aid") String aid) {
     leagueId = lid;
 
     model.addAttribute("teamList", totalTeams());
     model.addAttribute("usersMatches", allMatchesList());
     leagueId = lid;
+    adminId = aid;
+    model.addAttribute("adminId", adminId);
+
     return "views/createMatch";
 
   }
@@ -64,12 +67,14 @@ public class CreateMatchController {
     matchRepository.save(match);
 
     redirectAttrs.addAttribute("leagueId", leagueId);
+    redirectAttrs.addAttribute("aid", adminId);
     return "redirect:view_particular_league";
   }
 
   @PostMapping(value = "/goToEditMatch")
   public String goToMatch(Model model, RedirectAttributes redirectAttrs, @RequestParam("mid") String matchId) {
     redirectAttrs.addAttribute("mid", matchId);
+    redirectAttrs.addAttribute("aid", adminId);
     return "redirect:editMatch";
   }
 

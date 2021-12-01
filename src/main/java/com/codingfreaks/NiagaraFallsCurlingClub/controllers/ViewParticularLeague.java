@@ -28,7 +28,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class ViewParticularLeague {
 
     String leagueId;
-
+    String adminId;
     @Autowired
     private LeagueRepository leagueRepository;
 
@@ -36,21 +36,28 @@ public class ViewParticularLeague {
     private TournamentRequestRepository tournamentRequestRepository;
 
     @RequestMapping(value = "/view_particular_league", method = RequestMethod.GET)
-    public String tournaments(Model model, RedirectAttributes redirectAttrs, @RequestParam("leagueId") String lid) {
+    public String tournaments(Model model, RedirectAttributes redirectAttrs, @RequestParam("leagueId") String lid,
+            @RequestParam("aid") String aid) {
 
+        adminId = aid;
         leagueId = lid;
+        model.addAttribute("adminId", adminId);
+
         return "views/viewLeague";
     }
 
     @PostMapping("/teamManagementNavigate")
     public String teamManagementNavigate(Model model, RedirectAttributes redirectAttrs) {
         redirectAttrs.addAttribute("leagueId", leagueId);
+        redirectAttrs.addAttribute("aid", adminId);
         return "redirect:team_management";
     }
 
     @PostMapping("/matchManagementNavigate")
     public String matchManagementNavigate(Model model, RedirectAttributes redirectAttrs) {
         redirectAttrs.addAttribute("leagueId", leagueId);
+        redirectAttrs.addAttribute("aid", adminId);
+
         return "redirect:create_match";
     }
 

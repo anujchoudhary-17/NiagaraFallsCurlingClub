@@ -1,27 +1,38 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <title>Create Tournament</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Bonspiel</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" th:href="@{/css/event.css}">
 
-    </head>
+</head>
 <body>
+  <div th:replace="~{fragments/adminNavBar :: header}"></div>
+  
+<!-- partial:index.partial.html -->
+<div id="login-form-wrap">
 
-    <div th:replace="~{fragments/adminNavBar :: header}"></div>
-
-
-
-    <form th:action="@{/createTournamentFunction}" th:object="${tournamentData}" method="POST">
-        <label>Tournament Name : </label><input type="text" required th:field="*{name}"/>
-        <label>Description : </label><input type="text" required th:field="*{description}"/>
-        <label>Start Date : </label><input type="datetime-local" required th:field="*{startTime}"/>
-        <label>End Date : </label><input type="datetime-local" required th:field="*{endTime}"/>
-        <label>Max Participants : </label><input type="number" required th:field="*{maximumParticipants}"/>
-        <button type="submit">Create Tournament</button>
+  <div class="form-style-2">
+    <h2 id="createEventheader">Create Bonspiel</h2>
+    
+    <form th:action="@{/createTournamentFunction}" th:object="${tournamentData}" method="POST" id="login-form">
+        <div><label style="font-size: medium;">Tournament Name : </label><input type="text" required th:field="*{name}" style="padding: 20px;font-size: medium;"/></div>
+        <div><label style="font-size: medium;">Description : </label><input type="text" required th:field="*{description}" style="padding: 20px;font-size: medium;"/></div>
+        <div><label style="font-size: medium;">Start Date : </label><input type="datetime-local" required th:field="*{startTime}" style="padding: 20px;font-size: medium;"/></div>
+        <div><label style="font-size: medium;">End Date : </label><input type="datetime-local" required th:field="*{endTime}" style="padding: 20px;font-size: medium;"/></div>
+        <div><label style="font-size: medium;">Max Participants : </label><input type="number" required th:field="*{maximumParticipants}" style="padding: 20px;font-size: medium;"/></div>
+        <input type="submit" value="Create Bonspiel" style="margin-top: 10px;" />
     </form>
+    </div>
 
-
-      
+</div>
+  
 </body>
 </html>
+
+
+
+
+

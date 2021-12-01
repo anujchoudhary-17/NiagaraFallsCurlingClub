@@ -22,6 +22,7 @@
     }
     </style>
   <body style="background-color: #161616; color: white;">
+    <div th:replace="~{fragments/adminNavBar :: header}"></div>
 
       <div class="vertical-center">
         <form th:action="@{/teamManagementNavigate}" method="POST">

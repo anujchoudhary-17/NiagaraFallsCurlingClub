@@ -33,19 +33,21 @@ public class TeamManagementController {
   @Autowired
   private UserRepository userRepository;
 
-  String leagueId;
+  String leagueId, adminId;
   boolean isUserListEmpty;
 
   @RequestMapping(value = "/team_management", method = RequestMethod.GET)
-  public String team_management(Model model, @RequestParam("leagueId") String lid) {
+  public String team_management(Model model, @RequestParam("leagueId") String lid, @RequestParam("aid") String aid) {
     isUserListEmpty = false;
     leagueId = lid;
+    adminId = aid;
     model.addAttribute("userList", totalUsers());
     User user = findUser();
 
     model.addAttribute("teamList", totalTeams());
     model.addAttribute("teamSelect", "123");
     model.addAttribute("userObj", user);
+    model.addAttribute("adminId", adminId);
 
     model.addAttribute("isUserListEmpty", isUserListEmpty);
     System.out.println(totalUsers().get(0).getFirstName());
@@ -66,6 +68,8 @@ public class TeamManagementController {
     teamRepository.save(team);
 
     redirectAttrs.addAttribute("leagueId", leagueId);
+    redirectAttrs.addAttribute("aid", adminId);
+
     return "redirect:team_management";
   }
 
@@ -76,6 +80,8 @@ public class TeamManagementController {
     updateUser(userWithUserId.getTeamId(), teamIdPlz);
 
     redirectAttrs.addAttribute("leagueId", leagueId);
+    redirectAttrs.addAttribute("aid", adminId);
+
     return "redirect:team_management";
   }
 

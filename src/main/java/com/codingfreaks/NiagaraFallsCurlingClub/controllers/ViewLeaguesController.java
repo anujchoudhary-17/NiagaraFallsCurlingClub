@@ -50,6 +50,8 @@ public class ViewLeaguesController {
             @RequestParam("leagueId") String leagueId) {
 
         redirectAttrs.addAttribute("leagueId", leagueId);
+        redirectAttrs.addAttribute("aid", adminId);
+
         return "redirect:view_particular_league";
     }
 

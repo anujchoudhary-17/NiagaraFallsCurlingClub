@@ -1,6 +1,6 @@
-  <nav class="navbar navbar-expand-sm navbar-dark bg-danger sticky-top" th:fragment="header">
+  <nav class="navbar navbar-expand-sm navbar-dark sticky-top"  style="background-color: rgb(181, 53, 57); " th:fragment="header">
     <div>
-      <a class="navbar-brand" href="javascript:void(0)"> <img class="imgbtnsize" th:src="@{/images/NFCClogo.jpg}" style="width: 35px; background-color: none; 
+      <a class="navbar-brand" href="javascript:void(0)"> <img class="imgbtnsize" th:src="@{/images/NFCClogo.jpg}" style="width: 35px; background-color: rgb(158, 42, 46); 
         margin-left: 0.2cm; margin-top: 0.125cm;"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
         <span class="navbar-toggler-icon"></span>
@@ -8,12 +8,12 @@
       <div class="collapse navbar-collapse" id="mynavbar">
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <a class="nav-link" th:href="@{/adminHome?aid=}+${adminId}">Home</a>
+            <a class="nav-link"   th:href="@{/adminHome?aid=}+${adminId}">Home</a>
           </li>
-              <li><a class="dropdown-item" style="color: white;" th:href="@{/create_tournament?aid=}+${adminId}">Create Bonspiel</a></li>
-              <li><a class="dropdown-item" style="color: white;" th:href="@{/create_event?aid=}+${adminId}">Create Event</a></li>
-              <li><a class="dropdown-item" style="color: white;" th:href="@{/create_league?aid=}+${adminId}">Create League</a></li>
-              <li><a class="dropdown-item" style="color: white;" th:href="@{/view_leagues?aid=}+${adminId}">View Leagues</a></li>
+              <li><a class="nav-link"   th:href="@{/create_tournament?aid=}+${adminId}">Create Bonspiel</a></li>
+              <li><a class="nav-link"   th:href="@{/create_event?aid=}+${adminId}">Create Event</a></li>
+              <li><a class="nav-link"   th:href="@{/create_league?aid=}+${adminId}">Create League</a></li>
+              <li><a class="nav-link"   th:href="@{/view_leagues?aid=}+${adminId}">View Leagues</a></li>
            
         </ul>
         
