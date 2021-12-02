@@ -31,23 +31,24 @@
           <img
 
           th:src="@{/images/TorontoFC.png}" 
-            alt="96x96"
+            alt="${matchDetails.team1Name}"
 
             width="96px"
 
             height="96px"
           />
+          <br>
+            </div>
+          <div>
           <h3 th:text="${matchDetails.team1Name}"></h3>
-          <pre>   </pre><p th:text="${matchDetails.team1Score}"></p>
+     		<br>
+          <p th:text="${matchDetails.team1Score}"></p>
+          </div>
         </div>
       
-      </div>
+    
 
-      <div class="date_time">
-
-        </div>
-
-      <div class="vs" style="margin-left: 20px;">
+      <div class="vs" style="margin: 2em;">
         <p>vs</p>
       </div>
    
@@ -60,14 +61,24 @@
 
             height="96px"
           />
-          <h3 th:text="${matchDetails.team2Name}"></h3>
-          <pre>   </pre><p th:text="${matchDetails.team2Score}"></p>
+          <br>
+          
         </div>
+          <div> <h3 th:text="${matchDetails.team2Name}"></h3>
+          <br>
+          <p th:text="${matchDetails.team2Score}"></p>
+          </div>
       </div>
     </div>
 
-    <h3 th:text="${hasWinner} ? '': ${winnerName}"></h3>
   </div>
+  <br>
 </div>
+
+  <div>
+  	<h3 style="color: rgb(181, 53, 57);">Ladies and Gentleman, the winner is: </h3>
+  	<br>
+    <h3 style="color: rgb(181, 53, 57); font-size: 5em;" th:text="${hasWinner} ? '': ${winnerName}"></h3>
+  </div>
 
 </body>
