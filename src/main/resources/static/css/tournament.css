@@ -1,9 +1,9 @@
 .tournamentDiv{
-    margin-top:2px ;
+    margin-top:2em ;
+    padding: 2em;
     border: 2px solid black;
-    background-color: aqua;
+    background-color: rgb(181, 53, 57);
     width: 100%;
-    height: 10vh;
 }
 
 .placementDiv{
@@ -17,4 +17,5 @@
 
 .center{
     text-align: center;
+  color: rgb(181, 53, 57);
 }
