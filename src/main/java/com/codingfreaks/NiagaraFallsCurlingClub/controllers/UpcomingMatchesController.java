@@ -43,7 +43,21 @@ public class UpcomingMatchesController {
         model.addAttribute("userId", uid);
         userId = uid;
         model.addAttribute("usersMatches", allMatchesList());
-        return "views/upcomingMatches";
+        if (allMatchesList().isEmpty()) {
+            redirectAttrs.addAttribute("uid", userId);
+            return "redirect:no_match_found";
+        } else
+            return "views/upcomingMatches";
+    }
+
+    @RequestMapping(value = "/no_match_found", method = RequestMethod.GET)
+    public String noMatchFound(Model model, RedirectAttributes redirectAttrs, @RequestParam("uid") String uid) {
+
+        model.addAttribute("userId", uid);
+        userId = uid;
+        model.addAttribute("usersMatches", allMatchesList());
+
+        return "views/noMatchFound";
     }
 
     @RequestMapping(value = "/upcoming_all_matches", method = RequestMethod.GET)
@@ -52,7 +66,10 @@ public class UpcomingMatchesController {
         model.addAttribute("userId", uid);
         userId = uid;
         model.addAttribute("allMatches", allMatchList());
-        return "views/upcomingAllMatches";
+        if (allMatchList().isEmpty())
+            return "views/noMatchFound";
+        else
+            return "views/upcomingAllMatches";
     }
 
     @PostMapping("/goToMatch")
@@ -75,15 +92,19 @@ public class UpcomingMatchesController {
 
         List<String> teamIds = totalTeams();
 
-        for (Match match : allMatches) {
-            String team1Id = match.getTeam1Id();
-            String team2Id = match.getTeam2Id();
+        try {
+            for (Match match : allMatches) {
+                String team1Id = match.getTeam1Id();
+                String team2Id = match.getTeam2Id();
 
-            if (teamIds.contains(team1Id) || teamIds.contains(team2Id)) {
-                usersMatch.add(match);
+                if (teamIds.contains(team1Id) || teamIds.contains(team2Id)) {
+                    usersMatch.add(match);
+                }
             }
-        }
 
+        } catch (Exception e) {
+            return usersMatch;
+        }
         return usersMatch;
     }
 

@@ -65,12 +65,11 @@ public class EditMatchController {
 
     matchRepository.save(match);
     redirectAttrs.addAttribute("mid", matchId);
-
+    redirectAttrs.addAttribute("aid", adminId);
     return "redirect:editMatch";
   }
 
   private Match getMatchDetails() {
-
     return matchRepository.findById(matchId).orElse(null);
   }
 }
