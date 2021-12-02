@@ -1,42 +1,66 @@
 
 body {
+  overflow: scroll;
   background-color: rgb(22,22,22);
-  padding-top: 5em;
   display: flex;
   justify-content: center;
 }
 .carousel-slide{
-  margin-left: 18em;
   width: 45em;
   height: 45em;
 }
+
+.navbar { grid-area: header; }
+.typewriter { grid-area: top; }
+.carousel-slide { grid-area: main; }
+.announcements { grid-area: menu; }
+
+.container {
+  display: grid;
+  grid-template-areas:
+    'header header header header header header'
+    'top top top top top top'
+    'menu main main main main main';
+  grid-gap: 5em;
+  background-color: rgb(22,22,22);
+}
+
+
 /* DEMO-SPECIFIC STYLES */
 .typewriter h1 {
   color: rgb(181, 53, 57);
+  font-family: 'Gill Sans';
   font-size: 2em;
   font-family: monospace;
   overflow: hidden; /* Ensures the content is not revealed until the animation */
   border-right: .15em solid orange; /* The typwriter cursor */
   white-space: nowrap; /* Keeps the content on a single line */
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
   letter-spacing: .15em; /* Adjust as needed */
   animation: 
     typing 3.5s steps(30, end),
     blink-caret .5s step-end infinite;
 }
 .typewriter{
-  margin-left: 18em;
   width: 50em;
 }
 
 /* The typing effect */
 @keyframes typing {
   from { width: 0 }
-  to { width: 50% }
+  to { width: 100% }
 }
 
 /* The typewriter cursor effect */
 @keyframes blink-caret {
   from, to { border-color: transparent }
   50% { border-color: orange }
+}
+
+.image-text{
+  color: white;
+  font-size: large;
+}
+.announcements{
+  color : white;
+  text-align: justify;
 }
