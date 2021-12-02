@@ -5,11 +5,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/editProfile.js"></script>
-    <link rel="stylesheet" href="css/editProfile.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-  </head>
+    <link rel="stylesheet" th:href="@{/css/editProfile.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
   
-  <body>
+  <body style="background-color:rgb(43, 43, 43);color: white;" >
     <nav th:replace="~{fragments/navBar :: header}"></nav>
     
     <h1 id="header">Edit Profile</h1>
@@ -17,7 +18,7 @@
 
 
 
-    <form th:action="@{/userDetailsForm}" th:object="${userData}" method="POST">
+    <form th:action="@{/userDetailsForm}" th:object="${userData}" method="POST" >
       <div class="split left">
         <div class="centered">
           <div class="text-field">
@@ -76,16 +77,13 @@
   
           <form th:action="@{/userPasswordForm}" method="POST">
           <div class="text-field">
-            <input type="password" name="oldPassword" autocomplete="current-password" required="" id="id_password">
-            <i class="far fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></i>
-            <label>Current Password</label>
+            <input type="password" name="oldPassword" placeholder="Current Password"  required="" id="id_password">
           </div>
   
           <div class="text-field">
-          <input type="password" name="newPassword" autocomplete="current-password" required="" id="id_password" t>
-          <i class="far fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></i>
-          <label>New Password</label>
-
+          <input type="password" name="newPassword" placeholder="New Password" required="" id="id_password">
+  
+            
           <button class="btnChangePassword" value="Change Password" type="submit">
             Change Password
           </button>
