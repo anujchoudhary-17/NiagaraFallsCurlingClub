@@ -1,21 +1,18 @@
-.tournamentDiv{
-    margin-top:2em ;
-    padding: 2em;
-    border: 2px solid black;
-    background-color: rgb(181, 53, 57);
-    width: 100%;
+.tournamentDiv {
+	margin-top: 2em;
+	padding: 2em;
+	border: 2px solid black;
+	background-color: rgb(181, 53, 57);
+	width: 100%;
 }
-
-.placementDiv{
-  margin-top: 5px;
+.placementDiv {
+	margin-top: 5px;
 }
-
-.registerBtn{
-    position: absolute;
-    right: 1%;
+.registerBtn {
+	position: absolute;
+	right: 1%;
 }
-
-.center{
-    text-align: center;
-  color: rgb(181, 53, 57);
+.center {
+	text-align: center;
+	color: rgb(181, 53, 57);
 }

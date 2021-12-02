@@ -36,7 +36,7 @@ public class CreateEventController {
 		eventRepo.save(event);
 		model.addAttribute("transformationForm", model);
 		redirectAttrs.addAttribute("aid", adminId);
-		return "redirect:home";
+		return "redirect:adminHome";
 	}
 
 }
