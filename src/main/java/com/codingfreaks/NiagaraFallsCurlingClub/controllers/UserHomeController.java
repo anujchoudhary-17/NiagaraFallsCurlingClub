@@ -6,6 +6,8 @@ import javax.management.AttributeList;
 
 import com.codingfreaks.NiagaraFallsCurlingClub.constants.TournamentRequestStatus;
 import com.codingfreaks.NiagaraFallsCurlingClub.modelClasses.TournamentRequest;
+import com.codingfreaks.NiagaraFallsCurlingClub.modelClasses.User;
+import com.codingfreaks.NiagaraFallsCurlingClub.repositories.UserRepository;
 import com.codingfreaks.NiagaraFallsCurlingClub.repositories.Tournament.TournamentRequestRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,10 +28,14 @@ public class UserHomeController {
     @Autowired
     private TournamentRequestRepository tournamentRequestRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     public String signIn(Model model, RedirectAttributes redirectAttrs, @RequestParam("uid") String uid) {
         userId = uid;
         model.addAttribute("userId", userId);
+        model.addAttribute("userName", getUserDetails().getFirstName());
         return "views/home";
     }
 
@@ -68,6 +74,11 @@ public class UserHomeController {
     public String navigateToAllEvents(Model model, RedirectAttributes redirectAttrs) {
         redirectAttrs.addAttribute("uid", userId);
         return "redirect:view_events";
+    }
+
+
+    private User getUserDetails(){
+        return userRepository.findById(userId).orElse(null);
     }
 
 }
